@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2014 at 11:23 AM
--- Server version: 5.5.34
--- PHP Version: 5.4.22
+-- Generation Time: Jan 23, 2014 at 07:46 PM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `gc_categories` (
   `en_description` text NOT NULL,
   `en_excerpt` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
 
 --
 -- Dumping data for table `gc_categories`
@@ -151,7 +151,7 @@ INSERT INTO `gc_categories` (`id`, `parent_id`, `name`, `slug`, `route_id`, `des
 (1, 0, 'Tranh Sơn Dầu', 'tranh-son-dau', 4, '<p>Tranh Sơn Dầu</p>', '', 0, NULL, '', '', 1, 'Tranh sơn dầu', '<p>Tranh Sơn Dầu</p>', ''),
 (3, 0, 'Trang Thư Pháp', 'trang-thu-phap', 10, '', '', 0, NULL, '', '', 1, 'Trang thư pháp', '', ''),
 (4, 0, 'Tranh in vải Silk', 'tranh-in-vai-silk', 11, '', '', 0, NULL, '', '', 1, 'Tranh in vải Silk', '', ''),
-(5, 0, 'Tranh Poster', 'tranh-poster', 12, '', '', 0, NULL, '', '', 1, 'Tranh Poster', '', ''),
+(5, 0, 'Họa Chân Dung', 'hoa-chan-dung', 12, '', '', 0, NULL, '', '', 1, 'Họa Chân Dung', '', ''),
 (6, 0, 'Tranh Thêu', 'tranh-theu', 13, '', '', 0, NULL, '', '', 1, 'Tranh thêu', '', ''),
 (8, 0, 'Tranh Laminate', 'baby-poster', 15, '', '', 0, NULL, '', '', 1, 'Baby Poster', '', ''),
 (9, 1, 'Tranh Phong Thuỷ', 'tranh-phong-thuy', 16, '', '', 0, NULL, '', '', 1, 'Tranh Phong Thuỷ', '', ''),
@@ -185,7 +185,8 @@ INSERT INTO `gc_categories` (`id`, `parent_id`, `name`, `slug`, `route_id`, `des
 (37, 6, 'Sản phẩm hoàn thiện', 'san-pham-hoan-thien', 44, '', '', 0, NULL, '', '', 1, 'Sản phẩm hoàn thiện', '', ''),
 (38, 6, 'Sản phẩm chưa hoàn thiện', 'san-pham-chua-hoan-thien', 45, '', '', 0, NULL, '', '', 1, 'Sản phẩm chưa hoàn thiện', '', ''),
 (39, 8, 'Baby Poster', 'baby-poster1', 46, '', '', 0, NULL, '', '', 1, 'Baby Poster', '', ''),
-(40, 8, 'Tranh Laminate', 'tranh-laminate', 47, '', '', 0, NULL, '', '', 1, 'Tranh Laminate', '', '');
+(40, 8, 'Tranh Laminate', 'tranh-laminate', 47, '', '', 0, NULL, '', '', 1, 'Tranh Laminate', '', ''),
+(41, 0, 'Khung Trang', 'khung-trang', 48, '', '', 0, NULL, '', '', 1, 'Khung Trang', '', '');
 
 -- --------------------------------------------------------
 
@@ -4803,24 +4804,26 @@ CREATE TABLE IF NOT EXISTS `gc_pages` (
   `en_title` varchar(128) NOT NULL,
   `en_menu_title` varchar(128) NOT NULL,
   `en_content` text NOT NULL,
+  `category_id` int(9) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `gc_pages`
 --
 
-INSERT INTO `gc_pages` (`id`, `parent_id`, `title`, `menu_title`, `slug`, `route_id`, `content`, `sequence`, `seo_title`, `meta`, `url`, `new_window`, `en_title`, `en_menu_title`, `en_content`) VALUES
-(1, 0, 'Tin tức', 'Tin tức', 'tin-tuc', 1, '<p>Tin tuc</p>', 8, '', '', '', 0, 'NEWS', '', '<p>NEWSSS</p>'),
-(2, 0, 'Liên hệ', 'Liên hệ', 'lien-he', 2, '<p>Liên hệ</p>', 9, '', '', '', 0, 'Liên hệ', '', '<p>Liên hệ</p>'),
-(3, 0, 'Giới thiệu', 'Giới thiệu', 'gioi-thieu', 3, '<p>Gioi Thiệu</p>', 0, '', '', '', 0, 'Giới thiệu', '', '<p>Gioi Thiệu</p>'),
-(4, 0, 'Tranh sơn dầu', 'Tranh sơn dầu', 'tranh-sondau', 7, '', 1, '', '', '', 0, 'some', 'some', ''),
-(5, 0, 'Tranh thư pháp', 'Tranh thư pháp', '', 0, '', 2, '', '', 'sample', 0, 'Tranh thư pháp', 'Tranh thư pháp', ''),
-(6, 0, 'Tranh in vải Silk', 'Tranh in vải Silk', '', 0, '', 3, '', '', 'example', 0, 'Tranh in vải Silk', 'Tranh in vải Silk', ''),
-(7, 0, 'Tranh Poster', 'Tranh Poster', '', 0, '', 4, '', '', 'sample', 0, 'Tranh Poster', 'Tranh Poster', ''),
-(8, 0, 'Tranh thêu', 'Tranh thêu', '', 0, '', 5, '', '', 'sample', 0, 'Tranh thêu', 'Tranh thêu', ''),
-(9, 0, 'Nội thất đẹp', 'Nội thất đẹp', '', 0, '', 6, '', '', 'sample', 0, 'Nội thất đẹp', 'Nội thất đẹp', ''),
-(10, 0, 'Tranh Laminate', 'Tranh Laminate', '', 0, '', 7, '', '', 'sample', 0, 'Tranh Laminate', 'Tranh Laminate', '');
+INSERT INTO `gc_pages` (`id`, `parent_id`, `title`, `menu_title`, `slug`, `route_id`, `content`, `sequence`, `seo_title`, `meta`, `url`, `new_window`, `en_title`, `en_menu_title`, `en_content`, `category_id`) VALUES
+(1, 0, 'Tin tức', 'Tin tức', 'tin-tuc', 1, '<p>Tin tuc</p>', 9, '', '', '', 0, 'NEWS', '', '<p>NEWSSS</p>', NULL),
+(2, 0, 'Liên hệ', 'Liên hệ', 'lien-he', 2, '<p>Liên hệ</p>', 10, '', '', '', 0, 'Liên hệ', '', '<p>Liên hệ</p>', NULL),
+(3, 0, 'Giới thiệu', 'Giới thiệu', 'gioi-thieu', 3, '<p>Gioi Thiệu</p>', 0, '', '', '', 0, 'Giới thiệu', '', '<p>Gioi Thiệu</p>', NULL),
+(4, 0, 'Tranh Sơn Dầu', 'Tranh sơn dầu', '', 0, '', 1, '', '', 'tranh-son-dau', 0, 'Tranh sơn dầu', 'Tranh Sơn Dầu', '', 1),
+(5, 0, 'Trang Thư Pháp', 'Trang thư pháp', '', 0, '', 2, '', '', 'trang-thu-phap', 0, 'Trang thư pháp', 'Trang Thư Pháp', '', 3),
+(6, 0, 'Tranh in vải Silk', 'Tranh in vải Silk', '', 0, '', 3, '', '', 'tranh-in-vai-silk', 0, 'Tranh in vải Silk', 'Tranh in vải Silk', '', 4),
+(7, 0, 'Họa Chân Dung', 'Họa Chân Dung', '', 0, '', 6, '', '', 'hoa-chan-dung', 0, 'Họa Chân Dung', 'Họa Chân Dung', '', 5),
+(8, 0, 'Tranh Thêu', 'Tranh thêu', '', 0, '', 4, '', '', 'tranh-theu', 0, 'Tranh thêu', 'Tranh Thêu', '', 6),
+(9, 0, 'Nội thất đẹp', 'Nội thất đẹp', '', 0, '', 8, '', '', 'sample', 0, 'Nội thất đẹp', 'Nội thất đẹp', '', 0),
+(10, 0, 'Tranh Laminate', 'Baby Poster', '', 0, '', 5, '', '', 'baby-poster', 0, 'Baby Poster', 'Tranh Laminate', '', 8),
+(11, 0, 'Khung Trang', 'Khung Trang', '', 0, '', 7, '', '', 'khung-trang', 0, 'Khung Trang', 'Khung Trang', '', 41);
 
 -- --------------------------------------------------------
 
@@ -4890,7 +4893,7 @@ CREATE TABLE IF NOT EXISTS `gc_routes` (
   `slug` varchar(255) NOT NULL,
   `route` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
 
 --
 -- Dumping data for table `gc_routes`
@@ -4907,7 +4910,7 @@ INSERT INTO `gc_routes` (`id`, `slug`, `route`) VALUES
 (9, 'example-3', 'cart/product/8'),
 (10, 'trang-thu-phap', 'cart/category/3'),
 (11, 'tranh-in-vai-silk', 'cart/category/4'),
-(12, 'tranh-poster', 'cart/category/5'),
+(12, 'hoa-chan-dung', 'cart/category/5'),
 (13, 'tranh-theu', 'cart/category/6'),
 (15, 'baby-poster', 'cart/category/8'),
 (16, 'tranh-phong-thuy', 'cart/category/9'),
@@ -4941,7 +4944,8 @@ INSERT INTO `gc_routes` (`id`, `slug`, `route`) VALUES
 (44, 'san-pham-hoan-thien', 'cart/category/37'),
 (45, 'san-pham-chua-hoan-thien', 'cart/category/38'),
 (46, 'baby-poster1', 'cart/category/39'),
-(47, 'tranh-laminate', 'cart/category/40');
+(47, 'tranh-laminate', 'cart/category/40'),
+(48, 'khung-trang', 'cart/category/41');
 
 -- --------------------------------------------------------
 
