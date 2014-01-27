@@ -67,6 +67,8 @@
         //  This is Not the place to enable gift cards. It is a setting that is loaded during instantiation.
         var $gift_cards_enabled;
 
+        var $lang_key = 'vietnam';
+
         function __construct() {
 
             parent::__construct();
@@ -149,6 +151,7 @@
                 $type = $this->session->userdata('user_lang');
             }
             $this->lang->load($lang, $type);
+            $this->lang_key = $type;
         }
     }
 

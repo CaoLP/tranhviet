@@ -38,7 +38,7 @@
     $lang['your_cart'] = 'Giỏ hàng';
 
     $lang['on_sale'] = 'Đang bán';
-    $lang['related_products_title'] = 'Chắc hẵng bạn sẽ thích...';
+    $lang['related_products_title'] = 'Tranh được ưa thích';
     $lang['form_submit'] = 'Chấp nhận';
     $lang['form_register'] = 'Đăng ký';
     $lang['form_login'] = 'Đăng nhập';
@@ -117,7 +117,7 @@
     $lang['submit_payment_method'] = 'Gửi phương thức thanh toán';
     $lang['product_information'] = 'Thông tin sản phẩm';
     $lang['price_and_quantity'] = 'Giá &amp; Số lượng';
-    $lang['sku'] = 'SKU';
+    $lang['sku'] = 'Mã tranh';
     $lang['name'] = 'Tên';
     $lang['price'] = 'Giá';
     $lang['description'] = 'Nội dung';
@@ -165,6 +165,9 @@
     $lang['address_country'] = 'Quốc gia';
     $lang['address_state'] = 'Tiểu bang';
     $lang['message_address_saved'] = 'Địa chỉ đã được lưu!';
+    $lang['details'] = 'Xem chi tiết';
+    $lang['status'] = 'Tình trạng';
+
 
     $lang['default'] = 'Mặc định';
     $lang['additional_order_details'] = 'Chi tiết đơn hàng';

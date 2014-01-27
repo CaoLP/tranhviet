@@ -32,7 +32,7 @@ $lang['seo']						= 'SEO';
 $lang['parent']						= 'Cha';
 $lang['meta_data_description']		= 'ex. &lt;meta name="description" content="We sell products that help you" /&gt;';
 $lang['drag_and_drop']				= 'Kéo thả sản phẩm để sắp xếp.';
-$lang['sku']						= 'SKU';
+$lang['sku']						= 'Mã hàng';
 $lang['price']						= 'Giá';
 $lang['sale']						= 'Hạ giá';
 $lang['max_file_size']				= 'Dung lượng file tối đa';

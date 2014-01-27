@@ -38,7 +38,7 @@
             }
             //set up pagination
             $this->load->library('pagination');
-            $config['per_page'] = 21;
+            $config['per_page'] = 15;
             $config['first_link'] = 'First';
             $config['first_tag_open'] = '<li>';
             $config['first_tag_close'] = '</li>';
@@ -159,7 +159,7 @@
             $this->load->library('pagination');
             $config['base_url'] = base_url() . 'cart/search/' . $code . '/';
             $config['uri_segment'] = 4;
-            $config['per_page'] = 20;
+            $config['per_page'] = 15;
 
             $config['first_link'] = 'First';
             $config['first_tag_open'] = '<li>';
@@ -253,7 +253,7 @@
             $config['base_url'] = site_url($base_url);
 
             $config['uri_segment'] = $segments;
-            $config['per_page'] = 24;
+            $config['per_page'] = 15;
             $config['total_rows'] = $product_count;
 
             $config['first_link'] = 'First';
@@ -547,7 +547,6 @@
                 $card['fixed_quantity'] = true;
                 $card['is_gc'] = true; // !Important
                 $card['track_stock'] = false; // !Imporortant
-
                 $card['gc_info'] = array("to_name" => set_value('gc_to_name'),
                     "to_email" => set_value('gc_to_email'),
                     "from" => set_value('gc_from'),
@@ -572,6 +571,6 @@
             } else {
                 $this->session->set_userdata("user_lang", "english");
             }
-            redirect(base_url());
+            redirect(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : base_url());
         }
     }

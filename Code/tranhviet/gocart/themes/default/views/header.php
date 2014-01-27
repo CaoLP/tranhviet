@@ -12,12 +12,16 @@
     <?php endif; ?>
     <?php echo theme_css('style.css', true); ?>
     <?php echo theme_css('bootstrap.min.css', true); ?>
+    <?php echo theme_css('jquery.fancybox.css', true); ?>
 
     <?php echo theme_js('jquery.js', true); ?>
     <?php echo theme_js('jquery.simplyscroll.js', true); ?>
     <?php echo theme_js('bootstrap.min.js', true); ?>
     <?php echo theme_js('equal_heights.js', true); ?>
     <?php echo theme_js('squard.js', true); ?>
+
+    <?php echo theme_js('jquery.fancybox.js', true); ?>
+
 
     <?php
     //with this I can put header data in the header instead of in the body.

@@ -38,7 +38,7 @@
             ?>
         <?php else: ?>
             <?php if (isset($sub_categories)): ?>
-                <li><a href=""><?php echo $page_title; ?></a></li>
+                <li><a href="" style="background: #8c1914;"><?php echo $page_title; ?></a></li>
                 <?php foreach ($sub_categories as $cat_menu): ?>
                     <li><a href="<?php echo site_url($cat_menu->slug); ?>"><?php echo $cat_menu->name; ?></a></li>
                 <?php endforeach; ?>

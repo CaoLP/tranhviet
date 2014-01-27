@@ -156,6 +156,8 @@ class Products extends Admin_Controller {
         $data['en_description']		= '';
 
 		$data['excerpt']			= '';
+        $data['en_excerpt']			= '';
+
 		$data['price']				= '';
 		$data['saleprice']			= '';
 		$data['weight']				= '';
@@ -213,6 +215,8 @@ class Products extends Admin_Controller {
             $data['en_description']		= $product->en_description;
 
 			$data['excerpt']			= $product->excerpt;
+            $data['en_excerpt']			= $product->en_excerpt;
+
 			$data['price']				= $product->price;
 			$data['saleprice']			= $product->saleprice;
 			$data['weight']				= $product->weight;
@@ -257,6 +261,7 @@ class Products extends Admin_Controller {
 		$this->form_validation->set_rules('seo_title', 'lang:seo_title', 'trim');
 		$this->form_validation->set_rules('meta', 'lang:meta_data', 'trim');
 		$this->form_validation->set_rules('name', 'lang:name', 'trim|required|max_length[64]');
+        $this->form_validation->set_rules('en_name', 'lang:name', 'trim|required|max_length[64]');
 		$this->form_validation->set_rules('slug', 'lang:slug', 'trim');
 		$this->form_validation->set_rules('description', 'lang:description', 'trim');
 		$this->form_validation->set_rules('excerpt', 'lang:excerpt', 'trim');
@@ -343,6 +348,8 @@ class Products extends Admin_Controller {
             $save['en_description']				= !empty($en_description) ? $en_description : $this->input->post('description');
 
 			$save['excerpt']			= $this->input->post('excerpt');
+            $save['en_excerpt']			= $this->input->post('en_excerpt');
+
 			$save['price']				= $this->input->post('price');
 			$save['saleprice']			= $this->input->post('saleprice');
 			$save['weight']				= $this->input->post('weight');

@@ -34,53 +34,57 @@
                 <div class="contents">
                     <?php foreach ($products as $product): ?>
                         <?php
-                        $photo  = theme_img('no_picture.png', lang('no_image_available'));
-                        $product->images    = array_values($product->images);
+                        $photo = theme_img('no_picture.png', lang('no_image_available'));
+                        $product->images = array_values($product->images);
 
-                        if(!empty($product->images[0]))
-                        {
-                            $primary    = $product->images[0];
-                            foreach($product->images as $photo)
-                            {
-                                if(isset($photo->primary))
-                                {
-                                    $primary    = $photo;
+                        if (!empty($product->images[0])) {
+                            $primary = $product->images[0];
+                            foreach ($product->images as $photo) {
+                                if (isset($photo->primary)) {
+                                    $primary = $photo;
                                 }
                             }
 
-                            $photo  = '<img src="'.base_url('uploads/images/thumbnails/'.$primary->filename).'" alt="'.$product->seo_title.'"/>';
+                            $photo = '<img src="' . base_url('uploads/images/thumbnails/' . $primary->filename) . '" alt="' . $product->seo_title . '"/>';
                         }
                         ?>
                         <div class="product">
                             <div class="innerContent">
                                 <h3>
-                                    <a href="<?php echo site_url(implode('/', $base_url).'/'.$product->slug); ?>"><?php echo $product->name;?></a>
+                                    <a href="<?php echo site_url(implode('/', $base_url) . '/' . $product->slug); ?>">
+                                        <?php echo $this->lang_key == 'vietnam' ? $product->name : empty($product->en_name) ? $product->name : $product->en_name; ?></a>
                                 </h3>
-                                    <a href="<?php echo site_url(implode('/', $base_url).'/'.$product->slug); ?>">
-                                       <?php echo $photo; ?>
-                                    </a>
-                                    <ul>
-                                        <li class="matranh">Mã tranh: <?php echo $product->sku;?></li>
-                                        <?php if($product->saleprice > 0):?>
-                                        <li class="chitiet">Giá tiền:  <span class="price-slash"> <?php echo format_currency($product->price); ?></span>
-                                            <span class="price-sale"> <?php echo format_currency($product->saleprice); ?></span></li>
-                                        <?php else: ?>
-                                        <li class="chitiet">Giá tiền:  <?php echo format_currency($product->price); ?></li>
-                                        <?php endif; ?>
-                                        <li class="chitiet">Tranh sáng tác</li>
-                                        <?php if((bool)$product->track_stock && $product->quantity < 1 && config_item('inventory_enabled')) { ?>
-                                        <li class="chitiet">Tình trạng: <?php echo lang('out_of_stock');?></li>
-                                        <?php } ?>
-                                        <li class="chitiet">
-                                            <a href="<?php echo site_url(implode('/', $base_url).'/'.$product->slug); ?>">Xem chi tiết</a>
+                                <a href="<?php echo site_url(implode('/', $base_url) . '/' . $product->slug); ?>">
+                                    <?php echo $photo; ?>
+                                </a>
+                                <ul>
+                                    <li class="matranh"> <?php echo lang('sku'); ?>: <?php echo $product->sku; ?></li>
+                                    <?php if ($product->saleprice > 0): ?>
+                                        <li class="chitiet"><?php echo lang('price'); ?></li>
+                                        <li class="chitiet"><span
+                                                class="price-slash"> <?php echo format_currency($product->price); ?></span>
+                                            <span
+                                                class="price-sale"> <?php echo format_currency($product->saleprice); ?></span>
                                         </li>
-                                    </ul>
+                                    <?php else: ?>
+                                        <li class="chitiet"> <span
+                                                class="price-sale"> <?php echo format_currency($product->price); ?></span>
+                                        </li>
+                                    <?php endif; ?>
+                                    <?php if ((bool)$product->track_stock && $product->quantity < 1 && config_item('inventory_enabled')) { ?>
+                                        <li class="chitiet"><?php echo lang('status'); ?>
+                                            : <?php echo lang('out_of_stock'); ?></li>
+                                    <?php } ?>
+                                    <li class="chitiet">
+                                        <a href="<?php echo site_url(implode('/', $base_url) . '/' . $product->slug); ?>"> <?php echo lang('details'); ?></a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     <?php endforeach; ?>
                     <?php endif; ?>
                 </div>
-                    <?php echo $this->pagination->create_links(); ?>&nbsp;
+                <?php echo $this->pagination->create_links(); ?>&nbsp;
             </div>
         </div>
     </div>

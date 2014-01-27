@@ -7,7 +7,7 @@ Admin Product Language
 $lang['products']					= 'Sản phẩm';
 $lang['search_term']				= 'Từ khóa';
 $lang['product_form']				= 'Sản phẩm';
-$lang['sku']						= 'SKU';
+$lang['sku']						= 'Mã hàng';
 $lang['value']						= 'Giá trị';
 $lang['limit']						= 'Giới hạn';
 $lang['seo_title']					= 'Title Tag';

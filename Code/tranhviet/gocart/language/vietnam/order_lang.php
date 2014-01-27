@@ -46,7 +46,7 @@ $lang['price']						= 'Giá';
 $lang['quantity']					= 'Số lượng';
 $lang['qty']						= 'Sổ lượng';
 $lang['total']						= 'Tổng tiền';
-$lang['sku']						= 'SKU';
+$lang['sku']						= 'Mã hàng';
 
 $lang['coupon_discount']			= 'Phiếu giảm giá';
 $lang['goftcard_discount']			= 'Giảm giá hình thức quà tặng';

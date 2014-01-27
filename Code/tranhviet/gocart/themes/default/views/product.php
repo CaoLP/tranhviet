@@ -12,20 +12,20 @@
 <div class="image-wrap">
     <div class="border-image-wrap" id="border-image-wrap">
         <?php
-        $photo = theme_img('no_picture.png', lang('no_image_available'));
-        $product->images = array_values($product->images);
+            $photo = theme_img('no_picture.png', lang('no_image_available'));
+            $product->images = array_values($product->images);
 
-        if (!empty($product->images[0])) {
-            $primary = $product->images[0];
-            foreach ($product->images as $photo) {
-                if (isset($photo->primary)) {
-                    $primary = $photo;
+            if (!empty($product->images[0])) {
+                $primary = $product->images[0];
+                foreach ($product->images as $photo) {
+                    if (isset($photo->primary)) {
+                        $primary = $photo;
+                    }
                 }
-            }
 
-            $photo = '<img class="responsiveImage" src="' . base_url('uploads/images/medium/' . $primary->filename) . '" alt="' . $product->seo_title . '"/>';
-        }
-        echo $photo
+                $photo = '<img class="responsiveImage" src="' . base_url('uploads/images/medium/' . $primary->filename) . '" alt="' . $product->seo_title . '"/>';
+            }
+            echo $photo
         ?>
     </div>
     <?php if (!empty($primary->caption)): ?>
@@ -47,41 +47,34 @@
         <div class="name-wrapper">
             <div class="page-header">
                 <h2 style="font-weight:normal">
-                    <?php echo $product->name; ?>
+                    <?php echo $this->lang_key == 'vietnam' ? $product->name : empty($product->en_name) ? $product->name : $product->en_name; ?>
                 </h2>
             </div>
-            <?php if ($this->session->userdata('admin')): ?>
-                <a class="btn" title="<?php echo lang('edit_product'); ?>"
-                   href="<?php echo site_url($this->config->item('admin_folder') . '/products/form/' . $product->id); ?>"><i
-                        class="icon-pencil"></i></a>
-            <?php endif; ?>
         </div>
-        <div class="price">
-            <?php if ($product->saleprice > 0): ?>
-                <small><?php echo lang('on_sale'); ?></small>
-                <span class="product_price"><?php echo format_currency($product->saleprice); ?></span>
-            <?php else: ?>
-                <small><?php echo lang('product_price'); ?></small>
-                <span class="product_price"><?php echo format_currency($product->price); ?></span>
-            <?php endif; ?>
-        </div>
-        <div class="product-excerpt">
-            <?php echo $product->excerpt; ?>
-        </div>
-
-        <div class="product-sku-pricing">
-            <?php if (!empty($product->sku)): ?>
-                <div><?php echo lang('sku'); ?>: <?php echo $product->sku; ?></div><?php endif; ?>&nbsp;
-        </div>
-        <?php if ((bool)$product->track_stock && $product->quantity < 1 && config_item('inventory_enabled')): ?>
-            <div class="out-of-stock">
-                <div><?php echo lang('out_of_stock'); ?></div>
-            </div>
-        <?php endif; ?>
-
-
         <div class="product-option">
             <div class="product-cart-form">
+                <div class="price">
+                    <div class=""><?php echo lang('price'); ?></div>
+                    <?php if ($product->saleprice > 0): ?>
+                        <div class="price-slash"><?php echo format_currency($product->price); ?></div>
+                        <div class="price-sale"><?php echo format_currency($product->saleprice); ?></div>
+                    <?php else: ?>
+                        <div class="price-sale"><?php echo format_currency($product->price); ?></div>
+                    <?php endif; ?>
+                </div>
+                <div class="product-excerpt">
+                    <?php echo $product->excerpt; ?>
+                </div>
+
+                <div class="product-sku-pricing">
+                    <?php if (!empty($product->sku)): ?>
+                        <div><?php echo lang('sku'); ?>: <?php echo $product->sku; ?></div><?php endif; ?>&nbsp;
+                </div>
+                <?php if ((bool)$product->track_stock && $product->quantity < 1 && config_item('inventory_enabled')): ?>
+                    <div class="out-of-stock">
+                        <div><?php echo lang('out_of_stock'); ?></div>
+                    </div>
+                <?php endif; ?>
                 <?php echo form_open('cart/add_to_cart', 'class="form-info"'); ?>
                 <input type="hidden" name="cartkey" value="<?php echo $this->session->flashdata('cartkey'); ?>"/>
                 <input type="hidden" name="id" value="<?php echo $product->id ?>"/>
@@ -96,117 +89,129 @@
                             <div class="control-group">
                                 <label class="control-label"><?php echo $option->name; ?></label>
                                 <?php
-                                /*
-                                this is where we generate the options and either use default values, or previously posted variables
-                                that we either returned for errors, or in some other releases of Go Cart the user may be editing
-                                and entry in their cart.
-                                */
+                                    /*
+                                    this is where we generate the options and either use default values, or previously posted variables
+                                    that we either returned for errors, or in some other releases of Go Cart the user may be editing
+                                    and entry in their cart.
+                                    */
 
-                                //if we're dealing with a textfield or text area, grab the option value and store it in value
-                                if ($option->type == 'checklist') {
-                                    $value = array();
-                                    if ($posted_options && isset($posted_options[$option->id])) {
-                                        $value = $posted_options[$option->id];
-                                    }
-                                } else {
-                                    if (isset($option->values[0])) {
-                                        $value = $option->values[0]->value;
+                                    //if we're dealing with a textfield or text area, grab the option value and store it in value
+                                    if ($option->type == 'checklist') {
+                                        $value = array();
                                         if ($posted_options && isset($posted_options[$option->id])) {
                                             $value = $posted_options[$option->id];
                                         }
                                     } else {
-                                        $value = false;
+                                        if (isset($option->values[0])) {
+                                            $value = $option->values[0]->value;
+                                            if ($posted_options && isset($posted_options[$option->id])) {
+                                                $value = $posted_options[$option->id];
+                                            }
+                                        } else {
+                                            $value = false;
+                                        }
                                     }
-                                }
 
-                                if ($option->type == 'textfield'):?>
-                                    <div class="controls">
-                                        <input type="text" name="option[<?php echo $option->id; ?>]"
-                                               value="<?php echo $value; ?>" class="span4"/>
-                                        <?php echo $required; ?>
-                                    </div>
-                                <?php elseif ($option->type == 'textarea'): ?>
-                                    <div class="controls">
-                                        <textarea class="span4"
-                                                  name="option[<?php echo $option->id; ?>]"><?php echo $value; ?></textarea>
-                                        <?php echo $required; ?>
-                                    </div>
-                                <?php
-                                elseif ($option->type == 'droplist'): ?>
-                                    <div class="controls">
-                                        <select name="option[<?php echo $option->id; ?>]">
-                                            <option value=""><?php echo lang('choose_option'); ?></option>
+                                    if ($option->type == 'textfield'):?>
+                                        <div class="controls">
+                                            <input type="text" name="option[<?php echo $option->id; ?>]"
+                                                   value="<?php echo $value; ?>" class="span4"/>
+                                            <?php echo $required; ?>
+                                        </div>
+                                    <?php elseif ($option->type == 'textarea'): ?>
+                                        <div class="controls">
+                                            <textarea class="span4"
+                                                      name="option[<?php echo $option->id; ?>]"><?php echo $value; ?></textarea>
+                                            <?php echo $required; ?>
+                                        </div>
+                                    <?php
+                                    elseif ($option->type == 'droplist'): ?>
+                                        <div class="controls">
+                                            <select name="option[<?php echo $option->id; ?>]">
+                                                <option value=""><?php echo lang('choose_option'); ?></option>
 
+                                                <?php foreach ($option->values as $values):
+                                                    $selected = '';
+                                                    if ($value == $values->id) {
+                                                        $selected = ' selected="selected"';
+                                                    }?>
+
+                                                    <option<?php echo $selected; ?> value="<?php echo $values->id; ?>">
+                                                        <?php echo ($values->price != 0) ? ' (+' . format_currency($values->price) . ') ' : '';
+                                                            echo $values->name; ?>
+                                                    </option>
+
+                                                <?php endforeach; ?>
+                                            </select>
+                                            <?php echo $required; ?>
+                                        </div>
+                                    <?php
+                                    elseif ($option->type == 'radiolist'): ?>
+                                        <div class="controls">
                                             <?php foreach ($option->values as $values):
-                                                $selected = '';
-                                                if ($value == $values->id) {
-                                                    $selected = ' selected="selected"';
-                                                }?>
 
-                                                <option<?php echo $selected; ?> value="<?php echo $values->id; ?>">
-                                                    <?php echo ($values->price != 0) ? ' (+' . format_currency($values->price) . ') ' : '';
-                                                    echo $values->name; ?>
-                                                </option>
+                                                $checked = '';
+                                                if ($value == $values->id) {
+                                                    $checked = ' checked="checked"';
+                                                }?>
+                                                <label class="radio">
+                                                    <input<?php echo $checked; ?> type="radio"
+                                                                                  name="option[<?php echo $option->id; ?>]"
+                                                                                  value="<?php echo $values->id; ?>"/>
+                                                    <?php echo ($values->price != 0) ? '(+' . format_currency($values->price) . ') ' : '';
+                                                        echo $values->name; ?>
+                                                </label>
+                                            <?php endforeach; ?>
+                                            <?php echo $required; ?>
+                                        </div>
+                                    <?php
+                                    elseif ($option->type == 'checklist'): ?>
+                                        <div class="controls">
+                                            <?php foreach ($option->values as $values):
+
+                                                $checked = '';
+                                                if (in_array($values->id, $value)) {
+                                                    $checked = ' checked="checked"';
+                                                }?>
+                                                <label class="checkbox">
+                                                    <input<?php echo $checked; ?> type="checkbox"
+                                                                                  name="option[<?php echo $option->id; ?>][]"
+                                                                                  value="<?php echo $values->id; ?>"/>
+                                                    <?php echo ($values->price != 0) ? '(' . format_currency($values->price) . ') ' : '';
+                                                        echo $values->name; ?>
+                                                </label>
 
                                             <?php endforeach; ?>
-                                        </select>
+                                        </div>
                                         <?php echo $required; ?>
-                                    </div>
-                                <?php
-                                elseif ($option->type == 'radiolist'): ?>
-                                    <div class="controls">
-                                        <?php foreach ($option->values as $values):
-
-                                            $checked = '';
-                                            if ($value == $values->id) {
-                                                $checked = ' checked="checked"';
-                                            }?>
-                                            <label class="radio">
-                                                <input<?php echo $checked; ?> type="radio"
-                                                                              name="option[<?php echo $option->id; ?>]"
-                                                                              value="<?php echo $values->id; ?>"/>
-                                                <?php echo ($values->price != 0) ? '(+' . format_currency($values->price) . ') ' : '';
-                                                echo $values->name; ?>
-                                            </label>
-                                        <?php endforeach; ?>
-                                        <?php echo $required; ?>
-                                    </div>
-                                <?php
-                                elseif ($option->type == 'checklist'): ?>
-                                    <div class="controls">
-                                        <?php foreach ($option->values as $values):
-
-                                            $checked = '';
-                                            if (in_array($values->id, $value)) {
-                                                $checked = ' checked="checked"';
-                                            }?>
-                                            <label class="checkbox">
-                                                <input<?php echo $checked; ?> type="checkbox"
-                                                                              name="option[<?php echo $option->id; ?>][]"
-                                                                              value="<?php echo $values->id; ?>"/>
-                                                <?php echo ($values->price != 0) ? '(' . format_currency($values->price) . ') ' : '';
-                                                echo $values->name; ?>
-                                            </label>
-
-                                        <?php endforeach; ?>
-                                    </div>
-                                    <?php echo $required; ?>
-                                <?php endif; ?>
+                                    <?php endif; ?>
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
-
-                    <div class="control-group">
-                        <?php if (!$product->fixed_quantity) : ?>
+                    <?php if (!$product->fixed_quantity) : ?>
+                        <div class="control-group">
                             <label class="control-label"><?php echo lang('quantity') ?></label>
-                        <?php endif; ?>
-
-                        <div class="cartbtn">
                             <?php if (!config_item('inventory_enabled') || config_item('allow_os_purchase') || !(bool)$product->track_stock || $product->quantity > 0) : ?>
                                 <?php if (!$product->fixed_quantity) : ?>
-                                    <input class="span2" type="text" name="quantity"
-                                           value=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <div class="controls">
+                                        <input class="span2" type="text" name="quantity"
+                                               value=""/>
+                                    </div>
                                 <?php endif; ?>
+                            <?php endif; ?>
+
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="control-group">
+                        <?php if ($this->session->userdata('admin')): ?>
+                            <a class="btn" title="<?php echo lang('edit_product'); ?>"
+                               href="<?php echo site_url($this->config->item('admin_folder') . '/products/form/' . $product->id); ?>"><i
+                                    class="icon-pencil"></i></a>
+                        <?php endif; ?>
+                        <div class="cartbtn">
+                            <?php if (!config_item('inventory_enabled') || config_item('allow_os_purchase') || !(bool)$product->track_stock || $product->quantity > 0) : ?>
+
                                 <button class="btn btn-primary btn-large" type="submit" value="submit"><i
                                         class="icon-shopping-cart icon-white"></i> <?php echo lang('form_add_to_cart'); ?>
                                 </button>
@@ -222,8 +227,21 @@
     </div>
 </div>
 </div>
+
 <div class="product-des">
-    <?php echo $product->description; ?>
+    <div class="tabbable">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#product_des" data-toggle="tab"><?php echo lang('tab_description'); ?></a></li>
+        </ul>
+    </div>
+</div>
+<div class="tab-content">
+    <div class="tab-pane active" id="product_des">
+        <div class="span9">
+            <?php echo $this->lang_key == 'vietnam' ? $product->description : empty($product->en_description) ? $product->description : $product->en_description; ?>
+        </div
+    </div>
+</div>
 </div>
 
 <?php if (!empty($product->related_products)): ?>
@@ -249,27 +267,33 @@
             <div class="product">
                 <div class="innerContent">
                     <h3>
-                        <a href="<?php echo site_url($relate->slug); ?>"><?php echo $relate->name; ?></a>
+                        <a href="<?php echo site_url($relate->slug); ?>">
+                            <?php echo $this->lang_key == 'vietnam' ? $relate->name : empty($relate->en_name) ? $relate->name : $relate->en_name; ?>
+                        </a>
                     </h3>
                     <a href="<?php echo site_url($relate->slug); ?>">
                         <?php echo $photo; ?>
                     </a>
                     <ul>
-                        <li class="matranh">Mã tranh: <?php echo $relate->sku; ?></li>
+                        <li class="matranh"> <?php echo lang('sku'); ?>: <?php echo $relate->sku; ?></li>
                         <?php if ($relate->saleprice > 0): ?>
-                            <li class="chitiet">Giá tiền: <span
+                            <li class="chitiet"><?php echo lang('price'); ?></li>
+                            <li class="chitiet"><span
                                     class="price-slash"> <?php echo format_currency($relate->price); ?></span>
-                                <span class="price-sale"> <?php echo format_currency($relate->saleprice); ?></span></li>
+                                            <span
+                                                class="price-sale"> <?php echo format_currency($relate->saleprice); ?></span>
+                            </li>
                         <?php else: ?>
-                            <li class="chitiet">Giá tiền:  <?php echo format_currency($relate->price); ?></li>
+                            <li class="chitiet"> <span
+                                    class="price-sale"> <?php echo format_currency($relate->price); ?></span>
+                            </li>
                         <?php endif; ?>
-                        <li class="chitiet">Tranh sáng tác</li>
                         <?php if ((bool)$relate->track_stock && $relate->quantity < 1 && config_item('inventory_enabled')) { ?>
-                            <li class="chitiet">Tình trạng: <?php echo lang('out_of_stock'); ?></li>
+                            <li class="chitiet"><?php echo lang('status'); ?>
+                                : <?php echo lang('out_of_stock'); ?></li>
                         <?php } ?>
                         <li class="chitiet">
-                            <a href="<?php echo site_url(implode('/', $base_url) . '/' . $relate->slug); ?>">Xem chi
-                                tiết</a>
+                            <a href="<?php echo site_url($relate->slug); ?>"> <?php echo lang('details'); ?></a>
                         </li>
                     </ul>
                 </div>
@@ -277,7 +301,6 @@
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
-</div>
 <script>
     $(function () {
         $('.category_container').each(function () {

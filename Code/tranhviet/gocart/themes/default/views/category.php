@@ -2,13 +2,12 @@
     <div class="sanpham">
         <div class="bannerSanPham">
            <?php if(isset($category)):?> <span><?php echo $category->name; ?></span><?php endif;?>
-            <?php if(!empty($category->description)): ?>
-                <div class="row">
-                    <div><?php echo $category->description; ?></div>
-                </div>
-            <?php endif; ?>
-
         </div>
+        <?php if(!empty($category->description)): ?>
+            <div class="span9" style="border: 1px solid #ddd;margin-bottom: 10px;border-radius: 5px; padding: 2px;">
+                <div><?php echo $category->description; ?></div>
+            </div>
+        <?php endif; ?>
         <div class="row" style="margin: 5px">
             <div>
                 <?php if (count($products) == 0): ?>

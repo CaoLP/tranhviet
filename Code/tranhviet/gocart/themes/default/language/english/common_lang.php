@@ -37,7 +37,7 @@
     $lang['your_cart'] = 'Your Cart';
 
     $lang['on_sale'] = 'On Sale!';
-    $lang['related_products_title'] = 'You might also like...';
+    $lang['related_products_title'] = 'Related products';
     $lang['form_submit'] = 'Submit';
     $lang['form_register'] = 'Register';
     $lang['form_login'] = 'Login';
@@ -164,6 +164,9 @@
     $lang['address_country'] = 'Country';
     $lang['address_state'] = 'State';
     $lang['message_address_saved'] = 'Your address has been saved!';
+    $lang['details'] = 'Details';
+    $lang['status'] = 'Status';
+
 
     $lang['default'] = 'Default';
     $lang['additional_order_details'] = 'Additional Order Details';
