@@ -202,7 +202,9 @@
 
                         </div>
                     <?php endif; ?>
-
+                    <span class='st_facebook_hcount' displayText='Facebook'></span>
+                    <span class='st_twitter_hcount' displayText='Tweet'></span>
+                    <span class='st_googleplus_hcount' displayText='Google +'></span>
                     <div class="control-group">
                         <?php if ($this->session->userdata('admin')): ?>
                             <a class="btn" title="<?php echo lang('edit_product'); ?>"
