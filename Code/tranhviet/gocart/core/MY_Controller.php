@@ -68,6 +68,7 @@
         var $gift_cards_enabled;
 
         var $lang_key = 'vietnam';
+var $slide = array();
 
         function __construct() {
 
@@ -80,7 +81,7 @@
             $this->load->library('Banners');
 
             //load needed models
-            $this->load->model(array('Page_model', 'Product_model', 'Digital_Product_model', 'Gift_card_model', 'Option_model', 'Order_model', 'Settings_model'));
+                  $this->load->model(array('Page_model', 'Product_model', 'Digital_Product_model', 'Gift_card_model', 'Option_model', 'Order_model', 'Settings_model', 'Category_model'));
 
             //load helpers
             $this->load->helper(array('form_helper', 'formatting_helper'));
@@ -100,6 +101,45 @@
             } else {
                 $this->gift_cards_enabled = false;
             }
+ $slide_setting = $this->Settings_model->get_settings('slide');
+        if (!empty($slide_setting['slide_l'])) {
+            $qty_l = 0;
+            $sort_l = 'RANDOM';
+            $categories_l = array();
+            $json = json_decode($slide_setting['slide_l']);
+            $qty_l = $json->qty_l;
+            $sort_l = $json->sort_l;
+            if (isset($json->categories_l)) {
+                $categories_l = $json->categories_l;
+            }
+            if (count($categories_l) > 0) {
+                $this->slide['slide_l'] = $this->Category_model->get_slide_products($categories_l, $qty_l, $sort_l);
+            } else {
+                $this->slide['slide_l'] = $this->Category_model->get_slide_products(array(), $qty_l, $sort_l);
+            }
+
+        }else{
+            $this->slide['slide_l'] = $this->Category_model->get_slide_products(array(), 10, 'RANDOM');
+        }
+        if (!empty($slide_setting['slide_r'])) {
+            $qty_r = 0;
+            $sort_r = 'RANDOM';
+            $categories_r = array();
+            $json = json_decode($slide_setting['slide_r']);
+            $qty_r = $json->qty_r;
+            $sort_r = $json->sort_r;
+            if (isset($json->categories_r)) {
+                $categories_r = $json->categories_r;
+            }
+            if (count($categories_r) > 0) {
+                $this->slide['slide_r'] = $this->Category_model->get_slide_products($categories_r, $qty_r, $sort_r);
+            } else {
+                $this->slide['slide_r'] = $this->Category_model->get_slide_products(array(), $qty_r, $sort_r);
+            }
+
+        }else{
+            $this->slide['slide_r'] = $this->Category_model->get_slide_products(array(), 10, 'RANDOM');
+        }
             //$this->output->enable_profiler(TRUE);
         }
 

@@ -22,7 +22,10 @@
 
     <?php echo theme_js('jquery.fancybox.js', true); ?>
 
-
+<!--Begin Share this-->
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "ffaea2c1-fa0c-4425-af0b-41ef51907509", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+<!-- END Share this   -->
     <?php
     //with this I can put header data in the header instead of in the body.
     if (isset($additional_header_info)) {
