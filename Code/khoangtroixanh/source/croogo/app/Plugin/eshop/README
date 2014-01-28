@@ -1,0 +1,59 @@
+Croogo Eshop  plugin
+------------------------------
+Very simple plugin for Croogo, which is largery based on my requirements for simply eshop.
+Site used Croogo with this plugin: www.expodom.sk (Slovak language)
+
+
+Requirements
+------------------------------
+- jquery
+
+
+How to install
+------------------------------
+- Log in to admin panel
+- Go to Extensions > Plugins page
+- Upload the zip file (available here)
+- Click on tick/cross icon of 'Eshop' for activating or deactivating the plugin
+
+All tables are created automatically by config/schema files
+
+
+Settings -> Orders
+------------------------------
+All recieved orders, here you can see detail of order,
+change status of order, etc.
+
+Settings -> Suppliers
+------------------------------
+List of all eshop suppliers.
+Min. one supplier required
+
+Settings -> Configure
+------------------------------
+Statuses - comma separated possible statuses of order
+Payement - comma separated payement methods in order form
+Shipping - comma separated shipping methods in order form
+Email - all orders will be sended to this email also
+
+
+How to use
+------------------------------
+Admin:
+Your node must be of 'product' type. You can admin
+eshop items by clicking on Eshop tab in Node edit page
+Here you can add, modify or delete eshop items (prices)
+
+Use:
+All items are attached to 'product' type node by plugin behavior,
+so you can use it in your controllers or views in array 'EshopItems' in
+node data.
+For showing item directly add 
+<?php echo $this->element('eshop_items_form', array('items' => $node['EshopItems'], 'plugin' => 'eshop')) ?>
+to your node view file e.g. /app/views/themed/mytheme/nodes/view_product.ctp
+
+
+
+Next steps
+-------------------------------
+- agragators feeds

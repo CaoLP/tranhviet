@@ -1,0 +1,13 @@
+{
+	"name": "Eshop",
+	"description": "Eshop plugin",
+
+	"author": "Author Name",
+	"authorEmail": "author@example.com",
+	"authorUrl": "http://example.com",
+
+	"dependencies": {
+		"plugins": [
+		]
+	}
+}
