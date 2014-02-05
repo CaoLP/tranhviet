@@ -1,49 +1,69 @@
 <div class="verticalMenu">
     <ul>
         <?php
-        $loadSubMenu = false;
-        if (isset($override)):
-            if ($override):
-                $loadSubMenu = true; else:
-                $loadSubMenu = false;
-            endif; else:
             $loadSubMenu = false;
-        endif;
-        if (!$loadSubMenu):
-            ?>
-            <li>
-                <a href="<?php echo site_url(); ?>"><?php echo lang('homepage'); ?></a>
-            </li>
-            <?php
-            if (isset($this->pages[0])) {
-                foreach ($this->pages[0] as $menu_page):?>
-                    <li>
-                        <?php if (empty($menu_page->content)): ?>
-                            <a href="<?php
-                            if ($menu_page->category_id != '0')
-                                echo base_url() . $menu_page->url;
-                            else
-                                echo $menu_page->url;
+            if (isset($override)):
+                if ($override):
+                    $loadSubMenu = true;
+                else:
+                    $loadSubMenu = false;
+                endif;
+            else:
+                $loadSubMenu = false;
+            endif;
+            if (!$loadSubMenu):
+                ?>
+                <li>
+                    <a href="<?php echo site_url(); ?>"><?php echo lang('homepage'); ?></a>
+                </li>
+                <?php
+                if (isset($this->pages[0])) {
+                    foreach ($this->pages[0] as $menu_page):?>
+                        <li>
+                            <?php if (empty($menu_page->content)): ?>
+                                <a href="<?php
+                                    if ($menu_page->category_id != '0')
+                                        echo base_url() . $menu_page->url;
+                                    else
+                                        echo $menu_page->url;
 
-                            ?>" <?php if ($menu_page->new_window == 1) {
-                                echo 'target="_blank"';
-                            } ?>><?php echo $menu_page->menu_title; ?></a>
-                        <?php else: ?>
-                            <a href="<?php echo site_url($menu_page->slug); ?>"><?php echo $menu_page->menu_title; ?></a>
-                        <?php endif; ?>
-                    </li>
+                                ?>" <?php if ($menu_page->new_window == 1) {
+                                    echo 'target="_blank"';
+                                } ?>>
+                                    <?php  echo $this->lang_key == 'vietnam'
+                                        ? $menu_page->menu_title
+                                        : empty($menu_page->en_menu_title)
+                                            ? $menu_page->menu_title
+                                            : $menu_page->en_menu_title; ?>
+                                </a>
+                            <?php else: ?>
+                                <a href="<?php echo site_url($menu_page->slug); ?>">
+                                    <?php  echo $this->lang_key == 'vietnam'
+                                        ? $menu_page->menu_title
+                                        : empty($menu_page->en_menu_title)
+                                            ? $menu_page->menu_title
+                                            : $menu_page->en_menu_title; ?>
+                                </a>
+                            <?php endif; ?>
+                        </li>
 
-                <?php endforeach;
-            }
-            ?>
-        <?php else: ?>
-            <?php if (isset($sub_categories)): ?>
-                <li><a href="" style="background: #8c1914;"><?php echo $page_title; ?></a></li>
-                <?php foreach ($sub_categories as $cat_menu): ?>
-                    <li><a href="<?php echo site_url($cat_menu->slug); ?>"><?php echo $cat_menu->name; ?></a></li>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        <?php endif ?>
+                    <?php endforeach;
+                }
+                ?>
+            <?php else: ?>
+                <?php if (isset($sub_categories)): ?>
+                    <li><a href="" style="background: #8c1914;"><?php echo $page_title; ?></a></li>
+                    <?php foreach ($sub_categories as $cat_menu): ?>
+                        <li>
+                            <a href="<?php echo site_url($cat_menu->slug); ?>">
+                                <?php echo $this->lang_key == 'vietnam'
+                                    ? $cat_menu->name
+                                    : empty($cat_menu->en_name)
+                                        ? $cat_menu->name
+                                        : $cat_menu->en_name; ?></a></li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            <?php endif ?>
     </ul>
     <div class="bottomMenu">
         <div class="support">

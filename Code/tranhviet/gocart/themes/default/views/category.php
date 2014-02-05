@@ -1,11 +1,23 @@
 <div class="contentRight">
     <div class="sanpham">
         <div class="bannerSanPham">
-           <?php if(isset($category)):?> <span><?php echo $category->name; ?></span><?php endif;?>
+           <?php if(isset($category)):?> <span>
+               <?php  echo $this->lang_key == 'vietnam'
+                   ? $category->name
+                   : empty($category->en_name)
+                       ? $category->name
+                       : $category->en_name; ?>
+               </span><?php endif;?>
         </div>
         <?php if(!empty($category->description)): ?>
             <div class="span9" style="border: 1px solid #ddd;margin-bottom: 10px;border-radius: 5px; padding: 2px;">
-                <div><?php echo $category->description; ?></div>
+                <div>
+                    <?php  echo $this->lang_key == 'vietnam'
+                        ? $category->description
+                        : empty($category->en_description)
+                            ? $category->description
+                            : $category->en_description; ?>
+                </div>
             </div>
         <?php endif; ?>
         <div class="row" style="margin: 5px">
@@ -62,19 +74,25 @@
                                     <?php echo $photo; ?>
                                 </a>
                                 <ul>
-                                    <li class="matranh">Mã tranh: <?php echo $product->sku;?></li>
-                                    <?php if($product->saleprice > 0):?>
-                                        <li class="chitiet">Giá tiền:  <span class="price-slash"> <?php echo format_currency($product->price); ?></span>
-                                            <span class="price-sale"> <?php echo format_currency($product->saleprice); ?></span></li>
+                                    <li class="matranh"> <?php echo lang('sku'); ?>: <?php echo $product->sku; ?></li>
+                                    <?php if ($product->saleprice > 0): ?>
+                                        <li class="chitiet"><?php echo lang('price'); ?></li>
+                                        <li class="chitiet"><span
+                                                class="price-slash"> <?php echo format_currency($product->price); ?></span>
+                                            <span
+                                                class="price-sale"> <?php echo format_currency($product->saleprice); ?></span>
+                                        </li>
                                     <?php else: ?>
-                                        <li class="chitiet">Giá tiền:  <?php echo format_currency($product->price); ?></li>
+                                        <li class="chitiet"> <span
+                                                class="price-sale"> <?php echo format_currency($product->price); ?></span>
+                                        </li>
                                     <?php endif; ?>
-                                    <li class="chitiet">Tranh sáng tác</li>
-                                    <?php if((bool)$product->track_stock && $product->quantity < 1 && config_item('inventory_enabled')) { ?>
-                                        <li class="chitiet">Tình trạng: <?php echo lang('out_of_stock');?></li>
+                                    <?php if ((bool)$product->track_stock && $product->quantity < 1 && config_item('inventory_enabled')) { ?>
+                                        <li class="chitiet"><?php echo lang('status'); ?>
+                                            : <?php echo lang('out_of_stock'); ?></li>
                                     <?php } ?>
                                     <li class="chitiet">
-                                        <a href="<?php echo site_url(implode('/', $base_url).'/'.$product->slug); ?>">Xem chi tiết</a>
+                                        <a href="<?php echo site_url(implode('/', $base_url) . '/' . $product->slug); ?>"> <?php echo lang('details'); ?></a>
                                     </li>
                                 </ul>
                             </div>

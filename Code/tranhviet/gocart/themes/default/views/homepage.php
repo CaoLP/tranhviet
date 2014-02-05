@@ -4,7 +4,7 @@
     </div>
     <div class="sanpham">
         <div class="bannerSanPham">
-            <span>Tranh mới</span>
+            <span><?php echo lang('new_pro');?></span>
         </div>
         <div class="row" style="margin: 5px">
             <div>

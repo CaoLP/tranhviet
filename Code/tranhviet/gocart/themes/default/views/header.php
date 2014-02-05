@@ -34,22 +34,19 @@
 
     ?>
     <script type="text/javascript">
-        (function ($) {
-            $(function () {
-                $("#scroller").simplyScroll({
-                    customClass: 'vert',
-                    orientation: 'vertical',
+        $(document).ready(function () {
 
-                    pauseOnHover: true
-                });
-                $("#scroller2").simplyScroll({
-                    customClass: 'vert',
-                    orientation: 'vertical',
-
-                    pauseOnHover: true
-                });
+            $("#scroller").simplyScroll({
+                customClass: 'vert',
+                orientation: 'vertical',
+                pauseOnHover: true
             });
-        })(jQuery);
+            $("#scroller2").simplyScroll({
+                customClass: 'vert',
+                orientation: 'vertical',
+                pauseOnHover: true
+            });
+        });
     </script>
 </head>
 <body>

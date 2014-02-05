@@ -34,9 +34,21 @@
                                         echo $menu_page->url;
                                     ?>" <?php if ($menu_page->new_window == 1) {
                                         echo 'target="_blank"';
-                                    } ?>><?php echo $menu_page->menu_title; ?></a>
+                                    } ?>>
+                                        <?php  echo $this->lang_key == 'vietnam'
+                                            ? $menu_page->menu_title
+                                            : empty($menu_page->en_menu_title)
+                                                ? $menu_page->menu_title
+                                                : $menu_page->en_menu_title; ?>
+                                    </a>
                                 <?php else: ?>
-                                    <a href="<?php echo site_url($menu_page->slug); ?>"><?php echo $menu_page->menu_title; ?></a>
+                                    <a href="<?php echo site_url($menu_page->slug); ?>">
+                                        <?php  echo $this->lang_key == 'vietnam'
+                                            ? $menu_page->menu_title
+                                            : empty($menu_page->en_menu_title)
+                                                ? $menu_page->menu_title
+                                                : $menu_page->en_menu_title; ?>
+                                    </a>
                                 <?php endif; ?>
                             </li>
 

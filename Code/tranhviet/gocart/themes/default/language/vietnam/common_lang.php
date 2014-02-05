@@ -30,6 +30,7 @@
     $lang['catalog'] = 'Danh mục';
     $lang['account'] = 'Tài khoản';
     $lang['close'] = 'Đóng';
+    $lang['new_pro'] = 'Tranh mới';
 
     $lang['empty_cart'] = 'Giỏ hàng trống';
     $lang['single_item'] = '%d sản phẩm';

@@ -11,12 +11,39 @@
 
     <div class="footer_lienket">
         <ul>
-            <?php if (isset($this->categories[0])): ?>
-                <?php foreach ($this->categories[0] as $cat_menu): ?>
-                    <li><a href="<?php echo site_url($cat_menu->slug); ?>"><?php echo $cat_menu->name; ?></a></li>
-                <?php endforeach; ?>
+            <<a href="<?php echo site_url(); ?>"><?php echo lang('homepage'); ?></a>
             <?php
-            endif;
+                if (isset($this->pages[0])) {
+                    foreach ($this->pages[0] as $menu_page):?>
+                        <li>
+                            <?php if (empty($menu_page->content)): ?>
+                                <a href="<?php
+                                    if ($menu_page->category_id != '0')
+                                        echo base_url() . $menu_page->url;
+                                    else
+                                        echo $menu_page->url;
+                                ?>" <?php if ($menu_page->new_window == 1) {
+                                    echo 'target="_blank"';
+                                } ?>>
+                                    <?php  echo $this->lang_key == 'vietnam'
+                                        ? $menu_page->menu_title
+                                        : empty($menu_page->en_menu_title)
+                                            ? $menu_page->menu_title
+                                            : $menu_page->en_menu_title; ?>
+                                </a>
+                            <?php else: ?>
+                                <a href="<?php echo site_url($menu_page->slug); ?>">
+                                    <?php  echo $this->lang_key == 'vietnam'
+                                        ? $menu_page->menu_title
+                                        : empty($menu_page->en_menu_title)
+                                            ? $menu_page->menu_title
+                                            : $menu_page->en_menu_title; ?>
+                                </a>
+                            <?php endif; ?>
+                        </li>
+
+                    <?php endforeach;
+                }
             ?>
         </ul>
 
