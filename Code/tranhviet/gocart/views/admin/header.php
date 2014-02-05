@@ -165,6 +165,8 @@
                                     </li>
                                     <li><a href="<?php echo $admin_url; ?>slide"><?php echo lang('common_slide') ?></a>
                                     </li>
+                                    <li><a href="<?php echo $admin_url; ?>ads"><?php echo lang('common_ads') ?></a>
+                                    </li>
                                 </ul>
                             </li>
 
