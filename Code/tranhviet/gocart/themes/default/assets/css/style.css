@@ -123,8 +123,9 @@
     float: left;
     /*width: 100px;*/
     height: 33px;
-    margin-top: 7px;
+    margin-top: 11px;
     margin-left: 0px;
+    margin-right: 10px;
 }
 
 .lauguageImage a {
@@ -134,12 +135,14 @@
 }
 
 .lauguageImage img {
-    width: 36px;
-    height: 26px;
+    width: 24px;
 }
 
 .horizontalMenu {
     float: left;
+    margin: 1px auto;
+    min-width: 955px;
+    padding: 0;
 }
 
 .horizontalMenu ul {
@@ -155,10 +158,13 @@
     float: left;
     text-decoration: none;
     color: white;
-    font-size: 10px;
+    font-size: 12px;
     padding: 5px 6px;
-    line-height: 10px;
-    border-right: 1px solid #e2b709;
+    line-height: 8px;
+    /*border-right: 1px solid #e2b709;*/
+    min-width: 55px;
+    text-align: center;
+
 }
 .horizontalMenu a:hover {
     text-decoration: none;
@@ -230,6 +236,7 @@
     margin: 0;
     padding: 0;
     width: 100%;
+    line-height: 14px;
 }
 
 /* General link styling */
@@ -243,7 +250,7 @@
     font-family: Helvetica, Arial, sans-serif;
     color: #ffffff;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 300;
     background: #6f150c;
 }
