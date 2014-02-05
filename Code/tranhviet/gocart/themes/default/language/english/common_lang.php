@@ -30,6 +30,7 @@
     $lang['account'] = 'Account';
     $lang['close'] = 'Close';
     $lang['new_pro'] = 'New';
+    $lang['ad'] = 'Ad links';
 
     $lang['empty_cart'] = 'Your cart is empty';
     $lang['single_item'] = '%d item';

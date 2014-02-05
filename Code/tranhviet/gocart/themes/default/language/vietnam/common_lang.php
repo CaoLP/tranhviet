@@ -31,6 +31,7 @@
     $lang['account'] = 'Tài khoản';
     $lang['close'] = 'Đóng';
     $lang['new_pro'] = 'Tranh mới';
+    $lang['ad'] = 'Liên kết QC';
 
     $lang['empty_cart'] = 'Giỏ hàng trống';
     $lang['single_item'] = '%d sản phẩm';

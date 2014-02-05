@@ -532,7 +532,7 @@
 }
 
 .lienhe_skype img {
-    height: 100px;
+    /*height: 100px;*/
     width: 190px;
 }
 
@@ -546,6 +546,9 @@
 
 .footer {
     text-align: center;
+    clear: both;
+    width: 100%;
+    padding-top: 2em;
 }
 
 .footer span {

@@ -77,13 +77,13 @@
         </div>
         <div class="congdong">
             <a href="<?php echo $this->settings['info_youtube']; ?>"><img style="border: none;"
-                                                                          src="<?php echo base_url(); ?>images/01.gif"/></a>
+                                                                          src="<?php echo base_url(); ?>images/01.png"/></a>
             <a href="<?php echo $this->settings['info_facebook']; ?>"> <img style="border: none;"
-                                                                            src="<?php echo base_url(); ?>images/02.gif"/></a>
+                                                                            src="<?php echo base_url(); ?>images/02.png"/></a>
             <a href="<?php echo $this->settings['info_google']; ?>"><img style="border: none;"
-                                                                         src="<?php echo base_url(); ?>images/03.gif"/></a>
+                                                                         src="<?php echo base_url(); ?>images/03.png"/></a>
             <a href="<?php echo $this->settings['info_twitter']; ?>"><img class="noneMarginRight" style="border: none;"
-                                                                          src="<?php echo base_url(); ?>images/04.gif"/></a>
+                                                                          src="<?php echo base_url(); ?>images/04.png"/></a>
         </div>
         <div class="lienhe">
             <ul>
@@ -93,8 +93,10 @@
                 <li><span><img style="border: none;"
                                src="<?php echo base_url(); ?>images/fax.png"/> <?php echo $this->settings['info_fax']; ?></span>
                 </li>
-                <li><span><img style="border: none;"
-                               src="<?php echo base_url(); ?>images/yahoo.png"/> <?php echo $this->settings['info_yahoo']; ?></span>
+                <li><a style="text-decoration: none;color: #fff;"
+                       href="ymsgr:sendim?<?php echo $this->settings['info_yahoo']; ?>"><span><img style="border: none;"
+                                                                                                   src="<?php echo base_url(); ?>images/yahoo.png"/> <?php echo $this->settings['info_yahoo']; ?></span>
+                    </a>
                 </li>
                 <li><span><img style="border: none;"
                                src="<?php echo base_url(); ?>images/email.png"/> <?php echo $this->settings['info_email']; ?></span>
@@ -102,9 +104,11 @@
             </ul>
         </div>
         <div class="lienhe_skype">
-            <img style="border: none;" src="<?php echo base_url(); ?>images/Skype_Logo.png"/>
-            <br/>
-            <span><?php echo $this->settings['info_skype']; ?></span>
+            <a style="text-decoration: none;" href="skype:<?php echo $this->settings['info_skype']; ?>?chat">
+                <img style="border: none;" src="<?php echo base_url(); ?>images/Skype_Logo.png"/>
+                <br/>
+                <span><?php echo $this->settings['info_skype']; ?></span>
+            </a>
         </div>
     </div>
 </div>

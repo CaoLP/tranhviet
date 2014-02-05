@@ -35,7 +35,7 @@
 
     <div class="quangcao">
         <div class="textHeader">
-            <p>Liên kết QC</p>
+            <p><?php echo lang('ad');?></p>
         </div>
         <div class="imageQuangCao">
             <a href="#"><img src="<?php echo base_url(); ?>images/quangcao/trungdesgallery_Web_New_03.gif"/></a>
