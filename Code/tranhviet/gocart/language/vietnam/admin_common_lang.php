@@ -32,6 +32,7 @@
     $lang['common_ads_name'] = 'Tiêu đề';
     $lang['common_ads_link'] = 'Liên kết';
     $lang['common_ads_img'] = 'Hình ảnh';
+    $lang['common_ads_remove'] = 'Bạn có muốn xoá liên kết quảng cáo này ?';
 
     $lang['common_administrative'] = 'Quản lý';
     $lang['common_gocart_configuration'] = 'Cấu hình cửa hàng';

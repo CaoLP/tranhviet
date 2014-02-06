@@ -33,6 +33,7 @@
     $lang['common_ads_name'] = 'Title';
     $lang['common_ads_link'] = 'Link';
     $lang['common_ads_img'] = 'image';
+    $lang['common_ads_remove'] = 'Do you want to remove this ads link ?';
 
     $lang['common_administrative'] = 'Administrative';
     $lang['common_gocart_configuration'] = 'GoCart Configuration';
