@@ -2,7 +2,7 @@
     <div class="banner">
         <?php $this->banners->show_collection(1, 5); ?>
     </div>
-    <div class="sanpham">
+    <div class="sanpham"  style="height: 858px;">
         <div class="bannerSanPham">
             <span><?php echo lang('new_pro');?></span>
         </div>

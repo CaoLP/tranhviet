@@ -1,5 +1,5 @@
 <div class="contentRight">
-    <div class="sanpham">
+    <div class="sanpham" style=" height: 998px; margin-top: 0">
         <div class="bannerSanPham">
            <?php if(isset($category)):?> <span>
                <?php  echo $this->lang_key == 'vietnam'
@@ -11,7 +11,7 @@
         </div>
         <?php if(!empty($category->description)): ?>
             <div class="span9" style="border: 1px solid #ddd;margin-bottom: 10px;border-radius: 5px; padding: 2px;">
-                <div>
+                <div style="max-height: 115px;overflow-y: scroll;">
                     <?php  echo $this->lang_key == 'vietnam'
                         ? $category->description
                         : empty($category->en_description)
