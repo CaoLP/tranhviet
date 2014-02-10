@@ -11,4 +11,4 @@ $lang['login'] = 'Đăng nhập';
 $lang['password'] = 'Mật khẩu';
 $lang['email'] = 'Email';
 $lang['username'] = 'Tên đăng nhập';
-$lang['stay_logged_in'] = 'Giử trạng thái đăng nhập';
+$lang['stay_logged_in'] = 'Giữ trạng thái đăng nhập';
