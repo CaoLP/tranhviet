@@ -1,5 +1,5 @@
 <div class="contentRight">
-<div class="sanpham">
+<div class="sanpham" style=" height: 100%; margin-top: 0">
 <div class="bannerSanPham">
     <span> <?php echo $product->name; ?></span>
 </div>
@@ -261,7 +261,7 @@
         </ul>
     </div>
 </div>
-<div class="tab-content">
+<div class="tab-content" style="height: 560px;">
     <div class="tab-pane active" id="product_des">
         <div class="span9">
             <?php echo $this->lang_key == 'vietnam' ? $product->description : empty($product->en_description) ? $product->description : $product->en_description; ?>

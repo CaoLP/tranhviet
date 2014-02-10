@@ -50,7 +50,7 @@
 
     <style>
         .carousel-demo-vertical {
-            height: 860px;
+            height: 790px;
             width: 145px;
             margin: 9px;
             float: left;
