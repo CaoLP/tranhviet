@@ -6,7 +6,7 @@ $email = array('id' => 'bill_email', 'class' => 'span3', 'name' => 'email', 'val
 $phone = array('id' => 'bill_phone', 'class' => 'span3', 'name' => 'phone', 'value' => set_value('phone'));
 ?>
 <div class="contentRight">
-    <div class="sanpham">
+    <div class="sanpham"  style=" height: 100%; margin-top: 0">
         <div class="row" style="margin:10px;">
             <div class="page-header">
                 <h1><?php echo lang('form_register'); ?></h1>

@@ -51,7 +51,7 @@ $password = array('id' => 'password', 'class' => 'span2', 'name' => 'password', 
 $confirm = array('id' => 'confirm', 'class' => 'span2', 'name' => 'confirm', 'value' => '');
 ?>
 <div class="contentRight">
-    <div class="sanpham">
+    <div class="sanpham" style=" height: 100%; margin-top: 0">
         <div class="row" style="margin: 10px">
             <div class="my-account-box">
                 <div class="page-header">
