@@ -4,6 +4,26 @@
     <span> <?php echo $product->name; ?></span>
 </div>
 <script>
+    $('.fancybox-buttons').fancybox({
+        helpers: {
+            title: {
+                type: 'outside'
+            },
+            overlay: {
+                speedOut: 0
+            }
+        }
+    });
+    $(document).ready(function () {
+        $('.images').click(function () {
+            $(this).squard('280', $('#border-image-wrap'));
+            $('.fancybox-buttons').attr('href', $(this).attr('ref'));
+        });
+    });
+
+
+</script>
+<script>
     window.onload = function () {
         $('.product').equalHeights();
     }
@@ -14,7 +34,7 @@
         <?php
             $photo = theme_img('no_picture.png', lang('no_image_available'));
             $product->images = array_values($product->images);
-
+            $ref_photo = '';
             if (!empty($product->images[0])) {
                 $primary = $product->images[0];
                 foreach ($product->images as $photo) {
@@ -24,10 +44,12 @@
                 }
 
                 $photo = '<img class="responsiveImage" src="' . base_url('uploads/images/medium/' . $primary->filename) . '" alt="' . $product->seo_title . '"/>';
+                $ref_photo = '<div style="text-align: center;padding-top: 10px;"><a href="' . base_url('uploads/images/full/' . $primary->filename) . '" class="fancybox-buttons"  data-fancybox-group="button" >Xem hình lớn</a></div>';
             }
-            echo $photo
+            echo $photo;
         ?>
     </div>
+    <?php echo $ref_photo; ?>
     <?php if (!empty($primary->caption)): ?>
         <div class="product-thumbnails">
             <?php echo $primary->caption; ?>
@@ -36,8 +58,9 @@
     <?php if (count($product->images) > 1): ?>
         <div class="product-thumbnails">
             <?php foreach ($product->images as $image): ?>
-                <img class="images" onclick="$(this).squard('280', $('#border-image-wrap'));"
-                     src="<?php echo base_url('uploads/images/medium/' . $image->filename); ?>"/>
+                <img class="images" src="<?php echo base_url('uploads/images/medium/' . $image->filename); ?>"
+                     ref="<?php echo base_url('uploads/images/full/' . $image->filename); ?>"
+                    />
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
@@ -205,6 +228,7 @@
                     <span class='st_facebook_hcount' displayText='Facebook'></span>
                     <span class='st_twitter_hcount' displayText='Tweet'></span>
                     <span class='st_googleplus_hcount' displayText='Google +'></span>
+
                     <div class="control-group">
                         <?php if ($this->session->userdata('admin')): ?>
                             <a class="btn" title="<?php echo lang('edit_product'); ?>"

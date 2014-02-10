@@ -23,10 +23,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ads.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ads.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gocart/controllers/admin/ads.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="49" selection-start="221" selection-end="221" vertical-scroll-proportion="0.21518987" vertical-offset="0" max-vertical-offset="1088">
+            <state line="17" column="20" selection-start="562" selection-end="562" vertical-scroll-proportion="-9.384615" vertical-offset="45" max-vertical-offset="1088">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/product.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="79" selection-start="1517" selection-end="1517" vertical-scroll-proportion="0.8513732" vertical-offset="255" max-vertical-offset="5831">
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gocart/themes/default/assets/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="636" column="17" selection-start="10817" selection-end="10817" vertical-scroll-proportion="0.0" vertical-offset="10607" max-vertical-offset="20842">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="65" selection-start="1118" selection-end="1118" vertical-scroll-proportion="14.384615" vertical-offset="765" max-vertical-offset="2227">
               <folding />
             </state>
           </provider>
@@ -45,24 +76,6 @@
         <entry file="file://$PROJECT_DIR$/gocart/views/admin/product_form.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="345" column="67" selection-start="14953" selection-end="14953" vertical-scroll-proportion="0.0" vertical-offset="5406" max-vertical-offset="13600">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_common_lang.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gocart/language/english/admin_common_lang.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="70" selection-start="1379" selection-end="1379" vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="1122">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_common_lang.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gocart/language/vietnam/admin_common_lang.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="28" selection-start="1350" selection-end="1367" vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="1105">
               <folding />
             </state>
           </provider>
@@ -114,13 +127,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/gocart/themes/default/views/homepage.php" />
         <option value="$PROJECT_DIR$/gocart/themes/default/views/category.php" />
         <option value="$PROJECT_DIR$/gocart/themes/default/views/menu_top.php" />
         <option value="$PROJECT_DIR$/gocart/themes/default/language/vietnam/common_lang.php" />
         <option value="$PROJECT_DIR$/gocart/themes/default/language/english/common_lang.php" />
         <option value="$PROJECT_DIR$/gocart/themes/default/views/menu_left.php" />
-        <option value="$PROJECT_DIR$/gocart/themes/default/assets/css/style.css" />
         <option value="$PROJECT_DIR$/gocart/views/admin/header.php" />
         <option value="$PROJECT_DIR$/gocart/language/english/admin_common_lang.php" />
         <option value="$PROJECT_DIR$/gocart/language/vietnam/admin_common_lang.php" />
@@ -130,6 +141,8 @@
         <option value="$PROJECT_DIR$/gocart/themes/default/views/slide_left.php" />
         <option value="$PROJECT_DIR$/gocart/themes/default/views/slide_right.php" />
         <option value="$PROJECT_DIR$/gocart/controllers/admin/ads.php" />
+        <option value="$PROJECT_DIR$/gocart/themes/default/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/gocart/themes/default/views/product.php" />
       </list>
     </option>
   </component>
@@ -186,6 +199,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tranhviet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tranhviet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tranhviet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uploads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tranhviet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tranhviet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uploads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tranhviet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tranhviet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uploads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="full" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -829,11 +896,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Ikyu SVN\07_source\tranhviet\gocart\themes\default\assets\img" />
       <recent name="D:\Ikyu SVN\07_source\tranhviet\gocart\controllers\admin" />
       <recent name="D:\Ikyu SVN\07_source\tranhviet\gocart\themes\default\assets\js" />
       <recent name="C:\xampp\htdocs\tranhviet\gocart\views\admin" />
       <recent name="C:\xampp\htdocs\tranhviet\gocart\language\vietnam" />
-      <recent name="C:\xampp\htdocs\tranhviet\system\language" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Ikyu SVN\07_source\tranhviet\gocart\themes\default\assets\css" />
@@ -901,21 +968,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="144" selection-start="1788" selection-end="1913" vertical-scroll-proportion="-1.7798817" vertical-offset="2337" max-vertical-offset="5423" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/03.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gocart/themes/default/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="535" column="3" selection-start="9452" selection-end="9452" vertical-scroll-proportion="0.3719862" vertical-offset="8771" max-vertical-offset="20740" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/menu_left.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="105" column="34" selection-start="5656" selection-end="5656" vertical-scroll-proportion="0.745977" vertical-offset="1136" max-vertical-offset="2023" />
@@ -998,8 +1050,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gocart/controllers/admin/ads.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="49" selection-start="221" selection-end="221" vertical-scroll-proportion="0.21518987" vertical-offset="0" max-vertical-offset="1088">
+        <state line="17" column="20" selection-start="562" selection-end="562" vertical-scroll-proportion="-9.384615" vertical-offset="45" max-vertical-offset="1088">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="65" selection-start="1118" selection-end="1118" vertical-scroll-proportion="14.384615" vertical-offset="765" max-vertical-offset="2227">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gocart/themes/default/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="636" column="17" selection-start="10817" selection-end="10817" vertical-scroll-proportion="0.0" vertical-offset="10607" max-vertical-offset="20842">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="79" selection-start="1517" selection-end="1517" vertical-scroll-proportion="0.8513732" vertical-offset="255" max-vertical-offset="5831">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -634,6 +634,12 @@
     float: left;
 }
 
+.fancybox-buttons{
+    background: url('../img/view_larger.gif') no-repeat left 2px;
+    color: #014ead;
+    padding: 1px 0 1px 15px;
+}
+
 .textHeader {
     width: 154px;
 
