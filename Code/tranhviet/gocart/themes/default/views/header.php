@@ -21,11 +21,13 @@
     <?php echo theme_js('squard.js', true); ?>
 
     <?php echo theme_js('jquery.fancybox.js', true); ?>
+    <?php echo theme_js('scrollingcarousel.2.0.min.js', true); ?>
 
-<!--Begin Share this-->
+    <!--Begin Share this-->
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">stLight.options({publisher: "ffaea2c1-fa0c-4425-af0b-41ef51907509", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-<!-- END Share this   -->
+    <script
+        type="text/javascript">stLight.options({publisher: "ffaea2c1-fa0c-4425-af0b-41ef51907509", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+    <!-- END Share this   -->
     <?php
     //with this I can put header data in the header instead of in the body.
     if (isset($additional_header_info)) {
@@ -35,19 +37,41 @@
     ?>
     <script type="text/javascript">
         $(document).ready(function () {
-
-            $("#scroller").simplyScroll({
-                customClass: 'vert',
-                orientation: 'vertical',
-                pauseOnHover: true
+            $('#vertical-1').scrollingCarousel({
+                scrollerAlignment: 'vertical',
+                autoScroll: true
             });
-            $("#scroller2").simplyScroll({
-                customClass: 'vert',
-                orientation: 'vertical',
-                pauseOnHover: true
+            $('#vertical-2').scrollingCarousel({
+                scrollerAlignment: 'vertical',
+                autoScroll: true
             });
         });
     </script>
+
+    <style>
+        .carousel-demo-vertical {
+            height: 600px;
+            width: 145px;
+            margin: 9px;
+            float: left;
+            background-color: #ffffff;
+
+        }
+
+        .carousel-demo-vertical ul {
+            overflow: hidden;
+            margin: 2.5px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .carousel-demo-vertical li {
+            margin: 2px;
+            padding: 0;
+            height: auto;
+        }
+
+    </style>
 </head>
 <body>
 <div class="content-center">
@@ -59,7 +83,8 @@
                     <?php if ($this->Customer_model->is_logged_in(false, false)): ?>
                         <li class="dropdown">
 
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">  <i class="icon-user"></i>&nbsp;<?php echo lang('account'); ?><b
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
+                                    class="icon-user"></i>&nbsp;<?php echo lang('account'); ?><b
                                     class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -74,7 +99,8 @@
                             </ul>
                         </li>
                     <?php else: ?>
-                        <li><a href="<?php echo site_url('secure/login'); ?>"><i class="icon-user"></i>&nbsp;<?php echo lang('login'); ?></a></li>
+                        <li><a href="<?php echo site_url('secure/login'); ?>"><i
+                                    class="icon-user"></i>&nbsp;<?php echo lang('login'); ?></a></li>
                     <?php endif; ?>
                     <li>
                         <a href="<?php echo site_url('cart/view_cart'); ?>">
