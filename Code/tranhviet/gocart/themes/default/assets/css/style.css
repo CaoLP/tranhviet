@@ -211,7 +211,7 @@
 .verticalMenu {
     float: left;
     padding-left: 20px;
-    height: 100%;
+    height: 750%;
 }
 
 .verticalMenu > ul {
@@ -353,6 +353,7 @@
     float: left;
     background-color: #77160f;
     width: 100%;
+    height: 635px;
 }
 
 .contentRight {
@@ -424,7 +425,9 @@
 .support {
     font-family: Arial;
     clear: left;
-    height: 100px;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 
 .support img {

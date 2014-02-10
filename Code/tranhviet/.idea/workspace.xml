@@ -32,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="product.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="79" selection-start="1517" selection-end="1517" vertical-scroll-proportion="0.8513732" vertical-offset="255" max-vertical-offset="5831">
+            <state line="46" column="79" selection-start="1517" selection-end="1517" vertical-scroll-proportion="-20.26923" vertical-offset="255" max-vertical-offset="5831">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -45,10 +45,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gocart/themes/default/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="636" column="17" selection-start="10817" selection-end="10817" vertical-scroll-proportion="0.0" vertical-offset="10607" max-vertical-offset="20842">
+            <state line="426" column="16" selection-start="7827" selection-end="7827" vertical-scroll-proportion="0.83886254" vertical-offset="6711" max-vertical-offset="20893">
               <folding />
             </state>
           </provider>
@@ -57,8 +57,28 @@
       <file leaf-file-name="header.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="65" selection-start="1118" selection-end="1118" vertical-scroll-proportion="14.384615" vertical-offset="765" max-vertical-offset="2227">
+            <state line="52" column="26" selection-start="2081" selection-end="2096" vertical-scroll-proportion="-14.384615" vertical-offset="510" max-vertical-offset="2227">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu_left.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/menu_left.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="105" column="14" selection-start="5622" selection-end="5622" vertical-scroll-proportion="-22.346153" vertical-offset="1204" max-vertical-offset="2040">
+              <folding>
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#span#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#span#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#span#0;n#a#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#span#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,15 +87,6 @@
         <entry file="file://$PROJECT_DIR$/gocart/controllers/admin/slide.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="37" column="9" selection-start="946" selection-end="1251" vertical-scroll-proportion="0.0" vertical-offset="229" max-vertical-offset="1819">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product_form.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gocart/views/admin/product_form.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="345" column="67" selection-start="14953" selection-end="14953" vertical-scroll-proportion="0.0" vertical-offset="5406" max-vertical-offset="13600">
               <folding />
             </state>
           </provider>
@@ -93,7 +104,7 @@
       <file leaf-file-name="slide_left.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/slide_left.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="52" selection-start="442" selection-end="471" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="969">
+            <state line="1" column="32" selection-start="53" selection-end="75" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="969">
               <folding />
             </state>
           </provider>
@@ -127,11 +138,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/gocart/themes/default/views/category.php" />
         <option value="$PROJECT_DIR$/gocart/themes/default/views/menu_top.php" />
         <option value="$PROJECT_DIR$/gocart/themes/default/language/vietnam/common_lang.php" />
         <option value="$PROJECT_DIR$/gocart/themes/default/language/english/common_lang.php" />
-        <option value="$PROJECT_DIR$/gocart/themes/default/views/menu_left.php" />
         <option value="$PROJECT_DIR$/gocart/views/admin/header.php" />
         <option value="$PROJECT_DIR$/gocart/language/english/admin_common_lang.php" />
         <option value="$PROJECT_DIR$/gocart/language/vietnam/admin_common_lang.php" />
@@ -141,8 +150,10 @@
         <option value="$PROJECT_DIR$/gocart/themes/default/views/slide_left.php" />
         <option value="$PROJECT_DIR$/gocart/themes/default/views/slide_right.php" />
         <option value="$PROJECT_DIR$/gocart/controllers/admin/ads.php" />
-        <option value="$PROJECT_DIR$/gocart/themes/default/assets/css/style.css" />
         <option value="$PROJECT_DIR$/gocart/themes/default/views/product.php" />
+        <option value="$PROJECT_DIR$/gocart/themes/default/views/header.php" />
+        <option value="$PROJECT_DIR$/gocart/themes/default/views/menu_left.php" />
+        <option value="$PROJECT_DIR$/gocart/themes/default/assets/css/style.css" />
       </list>
     </option>
   </component>
@@ -968,11 +979,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/menu_left.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="34" selection-start="5656" selection-end="5656" vertical-scroll-proportion="0.745977" vertical-offset="1136" max-vertical-offset="2023" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gocart/views/admin/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="167" column="106" selection-start="8967" selection-end="8967" vertical-scroll-proportion="0.0" vertical-offset="2533" max-vertical-offset="4743">
@@ -1027,13 +1033,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/slide_left.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="52" selection-start="442" selection-end="471" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="969">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/slide_right.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="25" selection-start="641" selection-end="641" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="1173">
@@ -1055,28 +1054,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="65" selection-start="1118" selection-end="1118" vertical-scroll-proportion="14.384615" vertical-offset="765" max-vertical-offset="2227">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gocart/themes/default/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="636" column="17" selection-start="10817" selection-end="10817" vertical-scroll-proportion="0.0" vertical-offset="10607" max-vertical-offset="20842">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="79" selection-start="1517" selection-end="1517" vertical-scroll-proportion="0.8513732" vertical-offset="255" max-vertical-offset="5831">
+        <state line="46" column="79" selection-start="1517" selection-end="1517" vertical-scroll-proportion="-20.26923" vertical-offset="255" max-vertical-offset="5831">
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h3#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/slide_left.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="32" selection-start="53" selection-end="75" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="969">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="26" selection-start="2081" selection-end="2096" vertical-scroll-proportion="-14.384615" vertical-offset="510" max-vertical-offset="2227">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gocart/themes/default/views/menu_left.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="14" selection-start="5622" selection-end="5622" vertical-scroll-proportion="-22.346153" vertical-offset="1204" max-vertical-offset="2040">
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#span#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#span#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#span#0;n#a#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#span#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gocart/themes/default/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="426" column="16" selection-start="7827" selection-end="7827" vertical-scroll-proportion="0.83886254" vertical-offset="6711" max-vertical-offset="20893">
+          <folding />
         </state>
       </provider>
     </entry>

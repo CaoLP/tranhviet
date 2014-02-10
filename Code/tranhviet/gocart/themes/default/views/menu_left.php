@@ -66,15 +66,7 @@
             <?php endif ?>
     </ul>
     <div class="bottomMenu">
-        <div class="support">
-            <img style="border: none;" src="<?php echo base_url(); ?>images/phoneimge.png"/>
-            <ul>
-                <li><h3>Mua hàng online giá rẻ hơn</h3></li>
-                <li class="matranh">(từ 8.30 - 17.30 hàng ngày)</li>
-                <li class="chitiet"><?php echo $this->settings['info_hotline']; ?></li>
-            </ul>
 
-        </div>
         <div class="congdong">
             <a href="<?php echo $this->settings['info_youtube']; ?>"><img style="border: none;"
                                                                           src="<?php echo base_url(); ?>images/01.png"/></a>
@@ -102,6 +94,15 @@
                                src="<?php echo base_url(); ?>images/email.png"/> <?php echo $this->settings['info_email']; ?></span>
                 </li>
             </ul>
+        </div>
+        <div class="support">
+            <img style="border: none;" src="<?php echo base_url(); ?>images/phoneimge.png"/>
+            <ul>
+                <li><h3>Mua hàng online giá rẻ hơn</h3></li>
+                <li class="matranh">(từ 8.30 - 17.30 hàng ngày)</li>
+                <li class="chitiet"><?php echo $this->settings['info_hotline']; ?></li>
+            </ul>
+
         </div>
         <div class="lienhe_skype">
             <a style="text-decoration: none;" href="skype:<?php echo $this->settings['info_skype']; ?>?chat">
