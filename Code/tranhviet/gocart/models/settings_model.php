@@ -18,7 +18,8 @@ Class Settings_model extends CI_Model
 		{
 			$return[$results->setting_key]	= $results->setting;
 		}
-		return $return;	
+		return $return;
+
 	}
 	
 	/*
