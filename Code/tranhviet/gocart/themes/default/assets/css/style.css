@@ -1139,7 +1139,7 @@
 }
 
 .product-info .name-wrapper {
-    margin: 5px 0 6px;
+   margin: 20px 0 6px;
 }
 .product-info div{
     margin-top: 10px;
@@ -1170,7 +1170,9 @@
     border-radius: 4px;
 }
 .product-cart-form .form-info{}
-.product-option .control-group{}
+.product-option .control-group{
+height:auto;
+}
 .control-group .control-label{
     float: left;
     width: 120px;
@@ -1181,11 +1183,53 @@
 .control-group .controls{
     margin-left: 130px;
 }
-.control-group .cartbtn{
-    float: right;
-    margin-right: 10px;
+.cartbtn{
+    float: left;
+	width:auto;
+	text-align:center;
+    margin-left: 5px !important;
+	
 }
+.product-cart-form .table_product{
+margin: 5px !important;
+width:98%;
+}
+ .table_product .td_content{
+ width: 80px;
+ height:30px;
+ }
+.table_product .td_content_Product{
+ height:30px;
+ }
+ .dathang_sum{
 
+ margin-top:0 !important;
+   float: right;
+   width: 240px;
+ }
+ .dathang_or {
+float: left;
+width: 30px;
+color: 
+#818181;
+font-size: 11px;
+font-weight: normal;
+margin-left: -8px;
+margin-right: 8px;
+margin-top: 9px;
+}
+.dathang_phone {
+ margin-top:0 !important;
+float: left;
+width: 190px;
+color: 
+black;
+font-size: 13px;
+font-weight: bold;
+}
+  .table_product .td_content_line_height{
+line-height:26px;
+ }
 /*DES*/
 .product-des {
     overflow: hidden;

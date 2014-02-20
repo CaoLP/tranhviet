@@ -15,7 +15,7 @@ $("#datepicker2").datepicker({dateFormat: 'mm-dd-yy', altField: '#datepicker2_al
 		<fieldset>
 			<label for="code"><?php echo lang('coupon_code');?></label>
 			<?php
-			$data	= array('name'=>'code', 'value'=>set_value('code', $code), 'class'=>'span3');
+			$data	= array('name'=>'code', 'value'=>set_value('code', $code), 'class'=>'span3', 'readonly'=>'readonly');
 			echo form_input($data);
 			?>
 			

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2014 at 07:22 PM
+-- Generation Time: Feb 21, 2014 at 12:45 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -148,7 +148,7 @@ INSERT INTO `gc_categories` (`id`, `parent_id`, `name`, `slug`, `route_id`, `des
 (5, 0, 'Họa Chân Dung', 'hoa-chan-dung', 12, '', '', 0, NULL, '', '', 1, 'Họa Chân Dung', '', ''),
 (6, 0, 'Tranh Thêu', 'tranh-theu', 13, '', '', 0, NULL, '', '', 1, 'Tranh thêu', '', ''),
 (8, 0, 'Tranh Laminate', 'baby-poster', 15, '', '', 0, NULL, '', '', 1, 'Baby Poster', '', ''),
-(9, 1, 'Tranh Phong Thuỷ', 'tranh-phong-thuy', 16, '', '', 0, NULL, '', '', 1, 'Tranh Phong Thuỷ', '', ''),
+(9, 1, 'Tranh Phong Thủy', 'tranh-phong-thuy', 16, '', '', 0, NULL, '', '', 1, 'Water Picture', '', ''),
 (10, 1, 'Tranh Phong Cảnh', 'tranh-phong-canh', 17, '', '', 0, NULL, '', '', 1, 'Tranh Phong Cảnh', '', ''),
 (11, 1, 'Tranh Bộ', 'tranh-bo', 18, '', '', 0, NULL, '', '', 1, 'Tranh Bộ', '', ''),
 (12, 1, 'Tranh Tỉnh Vật', 'tranh-tinh-vat', 19, '', '', 0, NULL, '', '', 1, 'Tranh Tỉnh Vật', '', ''),
@@ -205,7 +205,31 @@ INSERT INTO `gc_category_products` (`product_id`, `category_id`, `sequence`) VAL
 (1, 4, 0),
 (6, 1, 0),
 (7, 1, 0),
-(8, 1, 0);
+(8, 1, 0),
+(10, 1, 0),
+(10, 9, 0),
+(11, 1, 0),
+(11, 9, 0),
+(12, 1, 0),
+(12, 9, 0),
+(13, 1, 0),
+(13, 9, 0),
+(14, 1, 0),
+(14, 9, 0),
+(15, 1, 0),
+(15, 9, 0),
+(16, 1, 0),
+(16, 9, 0),
+(17, 1, 0),
+(17, 9, 0),
+(18, 1, 0),
+(18, 9, 0),
+(19, 1, 0),
+(19, 9, 0),
+(20, 1, 0),
+(20, 9, 0),
+(21, 1, 0),
+(21, 9, 0);
 
 -- --------------------------------------------------------
 
@@ -4465,7 +4489,14 @@ CREATE TABLE IF NOT EXISTS `gc_coupons` (
   `reduction_type` varchar(10) NOT NULL,
   `reduction_amount` float(10,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `gc_coupons`
+--
+
+INSERT INTO `gc_coupons` (`id`, `code`, `start_date`, `end_date`, `whole_order_coupon`, `max_product_instances`, `max_uses`, `num_uses`, `reduction_target`, `reduction_type`, `reduction_amount`) VALUES
+(1, 'YVEMNQ7WU63Q6', '2014-02-19', '2014-02-28', 1, 1, 10, 0, 'price', 'fixed', 500000.00);
 
 -- --------------------------------------------------------
 
@@ -4617,7 +4648,14 @@ CREATE TABLE IF NOT EXISTS `gc_gift_cards` (
   `personal_message` mediumtext,
   `activated` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `gc_gift_cards`
+--
+
+INSERT INTO `gc_gift_cards` (`id`, `order_number`, `code`, `expiry_date`, `beginning_amount`, `amount_used`, `to_name`, `to_email`, `from`, `personal_message`, `activated`) VALUES
+(1, '', 'E341A381E38163C1', '0000-00-00', 500000.00, 0.00, 'abc', 'abc@gmail.com', 'cde', 'haha', 1);
 
 -- --------------------------------------------------------
 
@@ -4752,14 +4790,16 @@ CREATE TABLE IF NOT EXISTS `gc_orders` (
   `bill_country_code` varchar(10) DEFAULT NULL,
   `bill_country_id` int(9) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `gc_orders`
 --
 
 INSERT INTO `gc_orders` (`id`, `order_number`, `customer_id`, `status`, `ordered_on`, `shipped_on`, `tax`, `total`, `subtotal`, `gift_card_discount`, `coupon_discount`, `shipping`, `shipping_notes`, `shipping_method`, `notes`, `payment_info`, `referral`, `company`, `firstname`, `lastname`, `phone`, `email`, `ship_company`, `ship_firstname`, `ship_lastname`, `ship_email`, `ship_phone`, `ship_address1`, `ship_address2`, `ship_city`, `ship_zip`, `ship_zone`, `ship_zone_id`, `ship_country`, `ship_country_code`, `ship_country_id`, `bill_company`, `bill_firstname`, `bill_lastname`, `bill_email`, `bill_phone`, `bill_address1`, `bill_address2`, `bill_city`, `bill_zip`, `bill_zone`, `bill_zone_id`, `bill_country`, `bill_country_code`, `bill_country_id`) VALUES
-(1, '13893724941', NULL, 'Order Placed', '2014-01-10 17:48:14', '0000-00-00 00:00:00', 0.00, 11.00, 11.00, 0.00, 0.00, 0.00, '0', '0', NULL, '', '0', 'DKS', 'Cao', 'Le', '841225457697', 'hankau1@yahoo.com', 'DKS', 'Cao', 'Le', 'hankau1@yahoo.com', '841225457697', '20/3 Duong So 4, Ward 13, Go Vap', '20/3 đường số 4, phường 13, gò v', 'Ho Chi Minh', '70000', 'AG', 3751, 'Viet Nam', NULL, 230, 'DKS', 'Cao', 'Le', 'hankau1@yahoo.com', '841225457697', '20/3 Duong So 4, Ward 13, Go Vap', '20/3 đường số 4, phường 13, gò v', 'Ho Chi Minh', '70000', 'AG', 3751, 'Viet Nam', NULL, 230);
+(1, '13893724941', NULL, 'Order Placed', '2014-01-10 17:48:14', '0000-00-00 00:00:00', 0.00, 11.00, 11.00, 0.00, 0.00, 0.00, '0', '0', NULL, '', '0', 'DKS', 'Cao', 'Le', '841225457697', 'hankau1@yahoo.com', 'DKS', 'Cao', 'Le', 'hankau1@yahoo.com', '841225457697', '20/3 Duong So 4, Ward 13, Go Vap', '20/3 đường số 4, phường 13, gò v', 'Ho Chi Minh', '70000', 'AG', 3751, 'Viet Nam', NULL, 230, 'DKS', 'Cao', 'Le', 'hankau1@yahoo.com', '841225457697', '20/3 Duong So 4, Ward 13, Go Vap', '20/3 đường số 4, phường 13, gò v', 'Ho Chi Minh', '70000', 'AG', 3751, 'Viet Nam', NULL, 230),
+(2, '13919692362', NULL, 'Order Placed', '2014-02-10 01:07:16', '0000-00-00 00:00:00', 0.00, 1900000.00, 1900000.00, 0.00, 0.00, 0.00, '0', '0', NULL, 'Trả tiền lúc nhận hàng', '0', 'DKS', 'Cao', 'Le', '841225457697', 'hankau1@yahoo.com', 'DKS', 'Cao', 'Le', 'hankau1@yahoo.com', '841225457697', '20/3 Duong So 4, Ward 13, Go Vap', '20/3 đường số 4, phường 13, gò v', 'Ho Chi Minh', '70000', 'AG', 3751, 'Viet Nam', NULL, 230, 'DKS', 'Cao', 'Le', 'hankau1@yahoo.com', '841225457697', '20/3 Duong So 4, Ward 13, Go Vap', '20/3 đường số 4, phường 13, gò v', 'Ho Chi Minh', '70000', 'AG', 3751, 'Viet Nam', NULL, 230),
+(3, '13925356813', NULL, 'Order Placed', '2014-02-16 14:28:01', '0000-00-00 00:00:00', 0.00, 1900000.00, 1900000.00, 0.00, 0.00, 0.00, '0', '0', NULL, 'Trả tiền lúc nhận hàng', '0', 'asd', 'asd', 'ads', '12121212', 'asd@gmail.com', 'asd', 'asd', 'ads', 'asd@gmail.com', '12121212', '12', '12', 'asd', '084', 'AG', 3751, 'Viet Nam', NULL, 230, 'asd', 'asd', 'ads', 'asd@gmail.com', '12121212', '12', '12', 'asd', '084', 'AG', 3751, 'Viet Nam', NULL, 230);
 
 -- --------------------------------------------------------
 
@@ -4774,7 +4814,7 @@ CREATE TABLE IF NOT EXISTS `gc_order_items` (
   `quantity` int(11) NOT NULL,
   `contents` longtext NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `gc_order_items`
@@ -4782,7 +4822,9 @@ CREATE TABLE IF NOT EXISTS `gc_order_items` (
 
 INSERT INTO `gc_order_items` (`id`, `order_id`, `product_id`, `quantity`, `contents`) VALUES
 (1, 1, 1, 1, 'a:26:{s:2:"id";s:1:"1";s:3:"sku";s:2:"01";s:4:"name";s:9:"example 1";s:4:"slug";s:9:"example-1";s:8:"route_id";s:1:"6";s:11:"description";s:16:"<p>example 1</p>";s:7:"excerpt";s:9:"example 1";s:5:"price";s:4:"1.00";s:9:"saleprice";s:4:"1.00";s:13:"free_shipping";s:1:"0";s:9:"shippable";s:1:"1";s:7:"taxable";s:1:"1";s:14:"fixed_quantity";s:1:"1";s:6:"weight";s:1:"1";s:11:"track_stock";s:1:"1";s:16:"related_products";s:0:"";s:6:"images";s:234:"{"383720f65836dbe17e0b80c6296ecc18":{"filename":"383720f65836dbe17e0b80c6296ecc18.gif","alt":"","caption":"","primary":true},"3b023e9c3240877fd83849d4d0d0e52d":{"filename":"3b023e9c3240877fd83849d4d0d0e52d.gif","alt":"","caption":""}}";s:9:"seo_title";s:0:"";s:4:"meta";s:0:"";s:7:"enabled";s:1:"1";s:10:"base_price";s:4:"1.00";s:9:"file_list";a:0:{}s:12:"post_options";b:0;s:5:"is_gc";b:0;s:8:"quantity";d:1;s:8:"subtotal";d:1;}'),
-(2, 1, 7, 5, 'a:26:{s:2:"id";s:1:"7";s:3:"sku";s:1:"2";s:4:"name";s:9:"example 2";s:4:"slug";s:9:"example-2";s:8:"route_id";s:1:"8";s:11:"description";s:16:"<p>example 2</p>";s:7:"excerpt";s:0:"";s:5:"price";s:4:"2.00";s:9:"saleprice";s:4:"2.00";s:13:"free_shipping";s:1:"0";s:9:"shippable";s:1:"1";s:7:"taxable";s:1:"1";s:14:"fixed_quantity";s:1:"0";s:6:"weight";s:1:"2";s:11:"track_stock";s:1:"1";s:16:"related_products";s:0:"";s:6:"images";s:234:"{"383720f65836dbe17e0b80c6296ecc18":{"filename":"383720f65836dbe17e0b80c6296ecc18.gif","alt":"","caption":"","primary":true},"3b023e9c3240877fd83849d4d0d0e52d":{"filename":"3b023e9c3240877fd83849d4d0d0e52d.gif","alt":"","caption":""}}";s:9:"seo_title";s:0:"";s:4:"meta";s:0:"";s:7:"enabled";s:1:"1";s:10:"base_price";s:4:"2.00";s:9:"file_list";a:0:{}s:12:"post_options";b:0;s:5:"is_gc";b:0;s:8:"quantity";d:5;s:8:"subtotal";d:10;}');
+(2, 1, 7, 5, 'a:26:{s:2:"id";s:1:"7";s:3:"sku";s:1:"2";s:4:"name";s:9:"example 2";s:4:"slug";s:9:"example-2";s:8:"route_id";s:1:"8";s:11:"description";s:16:"<p>example 2</p>";s:7:"excerpt";s:0:"";s:5:"price";s:4:"2.00";s:9:"saleprice";s:4:"2.00";s:13:"free_shipping";s:1:"0";s:9:"shippable";s:1:"1";s:7:"taxable";s:1:"1";s:14:"fixed_quantity";s:1:"0";s:6:"weight";s:1:"2";s:11:"track_stock";s:1:"1";s:16:"related_products";s:0:"";s:6:"images";s:234:"{"383720f65836dbe17e0b80c6296ecc18":{"filename":"383720f65836dbe17e0b80c6296ecc18.gif","alt":"","caption":"","primary":true},"3b023e9c3240877fd83849d4d0d0e52d":{"filename":"3b023e9c3240877fd83849d4d0d0e52d.gif","alt":"","caption":""}}";s:9:"seo_title";s:0:"";s:4:"meta";s:0:"";s:7:"enabled";s:1:"1";s:10:"base_price";s:4:"2.00";s:9:"file_list";a:0:{}s:12:"post_options";b:0;s:5:"is_gc";b:0;s:8:"quantity";d:5;s:8:"subtotal";d:10;}'),
+(3, 2, 1, 1, 'a:30:{s:2:"id";s:1:"1";s:3:"sku";s:2:"01";s:4:"name";s:22:"Mã đáo thành công";s:4:"slug";s:9:"example-1";s:8:"route_id";s:1:"6";s:11:"description";s:2284:"<p><strong>Ý nghĩa của tấm tranh:</strong></p><p>Thời xưa đánh giặc hay đi làm ăn, phương tiện duy nhứt để đi và đến nhanh từ điểm A đến điểm B là con ngựa. Thời đó mổi lần đi xa là một chuyện rất gian nan, đi nhiều tháng (chuyển hàng chẳng hạn) hoặc đi đánh giặc thường rất nhiều năm mới trở về, vì vậy nên coi như đi 10 người về được chỉ 1 người, mã đáo là ý nghĩa: may mắn quay về.</p><p>- Ngựa phi trong gió có ý là con ngựa đó khỏe mạnh. <br>- 8 con bởi vì số 8 "Bát" đọc theo hán cùng một âm với chử Phát là phát đạt. <br>- Bình thường 8 con chạy về (chạy về phía người đứng ngắm tranh) ý là 8 con đều cùng một chí hướng, đó là ý nghĩa nguyên thủy của các tranh thời xưa. Đây cũng là một bức tranh tâm lý cho chủ nhân của nó "mạnh dạng dồn hết nhiệt huyết, tiến về một hướng để đạt mục đích".</p><p>Ngày nay người vẽ phăng ra con quay đầu lại để làm cho bức tranh thêm sống động, khác bình thường. Con quay đầu thường ở vị trí giữa thứ 4 thứ 5 hay con đầu của 8 con (không khi nào con cuối đàn), ý khuyến khích hay cổ vũ đồng đội tiến lên để đạt mục đích.</p><p>Trong phong thủy, "Mã đáo thành công" thường chỉ dành tặng những người mới bắt đầu làm ăn buôn bán, mới khai trương hoặc những người đang trên đường lập công danh (đặc biệt thuận lợi cho người lập công danh trên quân trường). Theo dị đoan, những người này một khi đã được thành công thì không bao giờ được đem tặng, làm mất, làm hư hủy bức 8 con ngựa đó.</p><p>Người đã có quan chức hoặc đại gia rồi thì không nên nhận tranh 8 ngựa vì nó sẽ có nghĩa ngược lại, (mã truy phong) đem phong ba tới. Những người này phải dùng những vật khác trong phong thủy để bảo vệ và làm vững, bền những gì họ đang có.</p><p>- See more at: http://www.vantien.com/ma-dao-thanh-cong.html#sthash.w4P2uOj7.dpuf</p>";s:7:"excerpt";s:22:"Mã đáo thành công";s:5:"price";d:1900000;s:9:"saleprice";s:10:"1900000.00";s:13:"free_shipping";s:1:"0";s:9:"shippable";s:1:"1";s:7:"taxable";s:1:"1";s:14:"fixed_quantity";s:1:"0";s:6:"weight";d:2;s:11:"track_stock";s:1:"1";s:16:"related_products";s:0:"";s:6:"images";s:234:"{"383720f65836dbe17e0b80c6296ecc18":{"filename":"383720f65836dbe17e0b80c6296ecc18.gif","alt":"","caption":"","primary":true},"3b023e9c3240877fd83849d4d0d0e52d":{"filename":"3b023e9c3240877fd83849d4d0d0e52d.gif","alt":"","caption":""}}";s:9:"seo_title";s:0:"";s:4:"meta";s:0:"";s:7:"enabled";s:1:"1";s:7:"en_name";s:19:"Horses in non- wind";s:10:"en_excerpt";s:19:"Horses in non- wind";s:14:"en_description";s:1779:"<p>The meaning of the painting :</p><p>Ancient fight or go to work and the only means to travel and to fast from point A to point B is a horse . Time away each time is a very difficult thing , go for several months ( eg shipping ) or go fight the new year is often a lot of returns, so watch as 10 people on the go is just one person , original code meaning : luck back.</p><p>- Horses in non- wind meant that the horse is healthy .</p><p>- 8 because the number 8 " Bowl " drought with a negative reading Buddhas is thriving .</p><p>- Normally I run about 8 ( running toward the stands watching the competition ) are the same as 8 human aspiration , which is the original meaning of the ancient paintings . This is a psychological picture for its owner " under strong passion poured , progress in one direction to achieve goals ."</p><p>Today, it tears off the drawing turned around to make the picture more vivid , the other normal . Spindle head is usually in place between the 4th or early 5th of 8 children ( not when the last man ) , encourage or cheer the team forward to achieve goals .</p><p>In feng shui , " whom the success " is often the only dedicated beginner for business , or opening new ones are on the way up the list ( especially convenient for the military establishment on the list ) . According to superstition , who once was never successfully been donated , lost , destroyed radiation damage that 8 horses .</p><p>Officials who have or should not be extended and receive 8 war horse because it would mean the reverse , ( access code style ) room nights to three . These people have to use other things in feng shui to protect and stable , durable what they are.</p><p>- See more at : http://www.vantien.com/ma-dao-thanh-cong.html # sthash.w4P2uOj7.dpuf</p>";s:10:"base_price";s:10:"2000000.00";s:9:"file_list";a:0:{}s:7:"options";a:1:{s:12:"Khung Tranh:";s:17:"Khung mà1u nâu ";}s:12:"post_options";a:1:{i:6;s:2:"11";}s:5:"is_gc";b:0;s:8:"quantity";d:1;s:8:"subtotal";d:1900000;}'),
+(4, 3, 1, 1, 'a:30:{s:2:"id";s:1:"1";s:3:"sku";s:2:"01";s:4:"name";s:22:"Mã đáo thành công";s:4:"slug";s:9:"example-1";s:8:"route_id";s:1:"6";s:11:"description";s:2284:"<p><strong>Ý nghĩa của tấm tranh:</strong></p><p>Thời xưa đánh giặc hay đi làm ăn, phương tiện duy nhứt để đi và đến nhanh từ điểm A đến điểm B là con ngựa. Thời đó mổi lần đi xa là một chuyện rất gian nan, đi nhiều tháng (chuyển hàng chẳng hạn) hoặc đi đánh giặc thường rất nhiều năm mới trở về, vì vậy nên coi như đi 10 người về được chỉ 1 người, mã đáo là ý nghĩa: may mắn quay về.</p><p>- Ngựa phi trong gió có ý là con ngựa đó khỏe mạnh. <br>- 8 con bởi vì số 8 "Bát" đọc theo hán cùng một âm với chử Phát là phát đạt. <br>- Bình thường 8 con chạy về (chạy về phía người đứng ngắm tranh) ý là 8 con đều cùng một chí hướng, đó là ý nghĩa nguyên thủy của các tranh thời xưa. Đây cũng là một bức tranh tâm lý cho chủ nhân của nó "mạnh dạng dồn hết nhiệt huyết, tiến về một hướng để đạt mục đích".</p><p>Ngày nay người vẽ phăng ra con quay đầu lại để làm cho bức tranh thêm sống động, khác bình thường. Con quay đầu thường ở vị trí giữa thứ 4 thứ 5 hay con đầu của 8 con (không khi nào con cuối đàn), ý khuyến khích hay cổ vũ đồng đội tiến lên để đạt mục đích.</p><p>Trong phong thủy, "Mã đáo thành công" thường chỉ dành tặng những người mới bắt đầu làm ăn buôn bán, mới khai trương hoặc những người đang trên đường lập công danh (đặc biệt thuận lợi cho người lập công danh trên quân trường). Theo dị đoan, những người này một khi đã được thành công thì không bao giờ được đem tặng, làm mất, làm hư hủy bức 8 con ngựa đó.</p><p>Người đã có quan chức hoặc đại gia rồi thì không nên nhận tranh 8 ngựa vì nó sẽ có nghĩa ngược lại, (mã truy phong) đem phong ba tới. Những người này phải dùng những vật khác trong phong thủy để bảo vệ và làm vững, bền những gì họ đang có.</p><p>- See more at: http://www.vantien.com/ma-dao-thanh-cong.html#sthash.w4P2uOj7.dpuf</p>";s:7:"excerpt";s:22:"Mã đáo thành công";s:5:"price";d:1900000;s:9:"saleprice";s:10:"1900000.00";s:13:"free_shipping";s:1:"0";s:9:"shippable";s:1:"1";s:7:"taxable";s:1:"1";s:14:"fixed_quantity";s:1:"0";s:6:"weight";d:2;s:11:"track_stock";s:1:"1";s:16:"related_products";s:0:"";s:6:"images";s:234:"{"383720f65836dbe17e0b80c6296ecc18":{"filename":"383720f65836dbe17e0b80c6296ecc18.gif","alt":"","caption":"","primary":true},"3b023e9c3240877fd83849d4d0d0e52d":{"filename":"3b023e9c3240877fd83849d4d0d0e52d.gif","alt":"","caption":""}}";s:9:"seo_title";s:0:"";s:4:"meta";s:0:"";s:7:"enabled";s:1:"1";s:7:"en_name";s:19:"Horses in non- wind";s:10:"en_excerpt";s:19:"Horses in non- wind";s:14:"en_description";s:1779:"<p>The meaning of the painting :</p><p>Ancient fight or go to work and the only means to travel and to fast from point A to point B is a horse . Time away each time is a very difficult thing , go for several months ( eg shipping ) or go fight the new year is often a lot of returns, so watch as 10 people on the go is just one person , original code meaning : luck back.</p><p>- Horses in non- wind meant that the horse is healthy .</p><p>- 8 because the number 8 " Bowl " drought with a negative reading Buddhas is thriving .</p><p>- Normally I run about 8 ( running toward the stands watching the competition ) are the same as 8 human aspiration , which is the original meaning of the ancient paintings . This is a psychological picture for its owner " under strong passion poured , progress in one direction to achieve goals ."</p><p>Today, it tears off the drawing turned around to make the picture more vivid , the other normal . Spindle head is usually in place between the 4th or early 5th of 8 children ( not when the last man ) , encourage or cheer the team forward to achieve goals .</p><p>In feng shui , " whom the success " is often the only dedicated beginner for business , or opening new ones are on the way up the list ( especially convenient for the military establishment on the list ) . According to superstition , who once was never successfully been donated , lost , destroyed radiation damage that 8 horses .</p><p>Officials who have or should not be extended and receive 8 war horse because it would mean the reverse , ( access code style ) room nights to three . These people have to use other things in feng shui to protect and stable , durable what they are.</p><p>- See more at : http://www.vantien.com/ma-dao-thanh-cong.html # sthash.w4P2uOj7.dpuf</p>";s:10:"base_price";s:10:"2000000.00";s:9:"file_list";a:0:{}s:7:"options";a:1:{s:12:"Khung Tranh:";s:17:"Khung mà1u nâu ";}s:12:"post_options";a:1:{i:6;s:2:"11";}s:5:"is_gc";b:0;s:8:"quantity";d:1;s:8:"subtotal";d:1900000;}');
 
 -- --------------------------------------------------------
 
@@ -4815,17 +4857,17 @@ CREATE TABLE IF NOT EXISTS `gc_pages` (
 --
 
 INSERT INTO `gc_pages` (`id`, `parent_id`, `title`, `menu_title`, `slug`, `route_id`, `content`, `sequence`, `seo_title`, `meta`, `url`, `new_window`, `en_title`, `en_menu_title`, `en_content`, `category_id`) VALUES
-(1, 0, 'Tin tức', 'Tin tức', 'tin-tuc', 1, '<p>Tin tuc</p>', 9, '', '', '', 0, 'NEWS', '', '<p>NEWSSS</p>', NULL),
-(2, 0, 'Liên hệ', 'Liên hệ', 'lien-he', 2, '<p>Liên hệ</p>', 10, '', '', '', 0, 'Liên hệ', '', '<p>Liên hệ</p>', NULL),
-(3, 0, 'Giới thiệu', 'Giới thiệu', 'gioi-thieu', 3, '<p>Gioi Thiệu</p>', 0, '', '', '', 0, 'Giới thiệu', '', '<p>Gioi Thiệu</p>', NULL),
-(4, 0, 'Tranh Sơn Dầu', 'Tranh sơn dầu', '', 0, '', 1, '', '', 'tranh-son-dau', 0, 'Tranh sơn dầu', 'Tranh Sơn Dầu', '', 1),
-(5, 0, 'Trang Thư Pháp', 'Trang thư pháp', '', 0, '', 2, '', '', 'trang-thu-phap', 0, 'Trang thư pháp', 'Trang Thư Pháp', '', 3),
-(6, 0, 'Tranh in vải Silk', 'Tranh in vải Silk', '', 0, '', 3, '', '', 'tranh-in-vai-silk', 0, 'Tranh in vải Silk', 'Tranh in vải Silk', '', 4),
-(7, 0, 'Họa Chân Dung', 'Họa Chân Dung', '', 0, '', 6, '', '', 'hoa-chan-dung', 0, 'Họa Chân Dung', 'Họa Chân Dung', '', 5),
-(8, 0, 'Tranh Thêu', 'Tranh thêu', '', 0, '', 4, '', '', 'tranh-theu', 0, 'Tranh thêu', 'Tranh Thêu', '', 6),
-(9, 0, 'Nội thất đẹp', 'Nội thất đẹp', '', 0, '', 8, '', '', 'sample', 0, 'Nội thất đẹp', 'Nội thất đẹp', '', 0),
-(10, 0, 'Tranh Laminate', 'Baby Poster', '', 0, '', 5, '', '', 'baby-poster', 0, 'Baby Poster', 'Tranh Laminate', '', 8),
-(11, 0, 'Khung Trang', 'Khung Trang', '', 0, '', 7, '', '', 'khung-trang', 0, 'Khung Trang', 'Khung Trang', '', 41);
+(1, 0, 'Tin tức', 'Tin tức', 'tin-tuc', 1, '<p>Tin tuc</p>', 9, '', '', '', 0, 'News', 'News', '<p>NEWSSS</p>', NULL),
+(2, 0, 'Liên hệ', 'Liên hệ', 'lien-he', 2, '<p>Liên hệ</p>', 10, '', '', '', 0, 'Contact Us', 'Contact Us', '<p>Liên hệ</p>', NULL),
+(3, 0, 'Giới thiệu', 'Giới thiệu', 'gioi-thieu', 3, '<p>Gioi Thiệu</p>', 0, '', '', '', 0, 'About Us', 'About Us', '<p>Gioi Thiệu</p>', NULL),
+(4, 0, 'Tranh Sơn Dầu', 'Tranh sơn dầu', '', 0, '', 1, '', '', 'tranh-son-dau', 0, 'Oil painting', 'Oil painting', '', 1),
+(5, 0, 'Trang Thư Pháp', 'Trang thư pháp', '', 0, '', 2, '', '', 'trang-thu-phap', 0, 'Page calligraphy', 'Page calligraphy', '', 3),
+(6, 0, 'Tranh in vải Silk', 'Tranh in vải Silk', '', 0, '', 3, '', '', 'tranh-in-vai-silk', 0, 'Silk fabric prints', 'Silk fabric prints', '', 4),
+(7, 0, 'Họa Chân Dung', 'Họa Chân Dung', '', 0, '', 6, '', '', 'hoa-chan-dung', 0, 'Portrait', 'Portrait', '', 5),
+(8, 0, 'Tranh Thêu', 'Tranh thêu', '', 0, '', 4, '', '', 'tranh-theu', 0, 'Embroideries', 'Embroideries', '', 6),
+(9, 0, 'Nội thất đẹp', 'Nội thất đẹp', '', 0, '', 8, '', '', 'sample', 0, 'Beautiful furniture', 'Beautiful furniture', '', 0),
+(10, 0, 'Tranh Laminate', 'Baby Poster', '', 0, '', 5, '', '', 'baby-poster', 0, 'Laminate', 'Laminate', '', 8),
+(11, 0, 'Khung Trang', 'Khung Trang', '', 0, '', 7, '', '', 'khung-trang', 0, 'Frame', 'Frame', '', 41);
 
 -- --------------------------------------------------------
 
@@ -4859,17 +4901,30 @@ CREATE TABLE IF NOT EXISTS `gc_products` (
   `en_excerpt` text NOT NULL,
   `en_description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `gc_products`
 --
 
 INSERT INTO `gc_products` (`id`, `sku`, `name`, `slug`, `route_id`, `description`, `excerpt`, `price`, `saleprice`, `free_shipping`, `shippable`, `taxable`, `fixed_quantity`, `weight`, `track_stock`, `quantity`, `related_products`, `images`, `seo_title`, `meta`, `enabled`, `en_name`, `en_excerpt`, `en_description`) VALUES
-(1, '01', 'Mã đáo thành công', 'example-1', 6, '<p><strong>Ý nghĩa của tấm tranh:</strong></p><p>Thời xưa đánh giặc hay đi làm ăn, phương tiện duy nhứt để đi và đến nhanh từ điểm A đến điểm B là con ngựa. Thời đó mổi lần đi xa là một chuyện rất gian nan, đi nhiều tháng (chuyển hàng chẳng hạn) hoặc đi đánh giặc thường rất nhiều năm mới trở về, vì vậy nên coi như đi 10 người về được chỉ 1 người, mã đáo là ý nghĩa: may mắn quay về.</p><p>- Ngựa phi trong gió có ý là con ngựa đó khỏe mạnh. <br>- 8 con bởi vì số 8 "Bát" đọc theo hán cùng một âm với chử Phát là phát đạt. <br>- Bình thường 8 con chạy về (chạy về phía người đứng ngắm tranh) ý là 8 con đều cùng một chí hướng, đó là ý nghĩa nguyên thủy của các tranh thời xưa. Đây cũng là một bức tranh tâm lý cho chủ nhân của nó "mạnh dạng dồn hết nhiệt huyết, tiến về một hướng để đạt mục đích".</p><p>Ngày nay người vẽ phăng ra con quay đầu lại để làm cho bức tranh thêm sống động, khác bình thường. Con quay đầu thường ở vị trí giữa thứ 4 thứ 5 hay con đầu của 8 con (không khi nào con cuối đàn), ý khuyến khích hay cổ vũ đồng đội tiến lên để đạt mục đích.</p><p>Trong phong thủy, "Mã đáo thành công" thường chỉ dành tặng những người mới bắt đầu làm ăn buôn bán, mới khai trương hoặc những người đang trên đường lập công danh (đặc biệt thuận lợi cho người lập công danh trên quân trường). Theo dị đoan, những người này một khi đã được thành công thì không bao giờ được đem tặng, làm mất, làm hư hủy bức 8 con ngựa đó.</p><p>Người đã có quan chức hoặc đại gia rồi thì không nên nhận tranh 8 ngựa vì nó sẽ có nghĩa ngược lại, (mã truy phong) đem phong ba tới. Những người này phải dùng những vật khác trong phong thủy để bảo vệ và làm vững, bền những gì họ đang có.</p><p>- See more at: http://www.vantien.com/ma-dao-thanh-cong.html#sthash.w4P2uOj7.dpuf</p>', 'Mã đáo thành công', 2000000.00, 1900000.00, 0, 1, 1, 0, '1', 1, 11, '', '{"383720f65836dbe17e0b80c6296ecc18":{"filename":"383720f65836dbe17e0b80c6296ecc18.gif","alt":"","caption":"","primary":true},"3b023e9c3240877fd83849d4d0d0e52d":{"filename":"3b023e9c3240877fd83849d4d0d0e52d.gif","alt":"","caption":""}}', '', '', 1, 'Horses in non- wind', 'Horses in non- wind', '<p>The meaning of the painting :</p><p>Ancient fight or go to work and the only means to travel and to fast from point A to point B is a horse . Time away each time is a very difficult thing , go for several months ( eg shipping ) or go fight the new year is often a lot of returns, so watch as 10 people on the go is just one person , original code meaning : luck back.</p><p>- Horses in non- wind meant that the horse is healthy .</p><p>- 8 because the number 8 " Bowl " drought with a negative reading Buddhas is thriving .</p><p>- Normally I run about 8 ( running toward the stands watching the competition ) are the same as 8 human aspiration , which is the original meaning of the ancient paintings . This is a psychological picture for its owner " under strong passion poured , progress in one direction to achieve goals ."</p><p>Today, it tears off the drawing turned around to make the picture more vivid , the other normal . Spindle head is usually in place between the 4th or early 5th of 8 children ( not when the last man ) , encourage or cheer the team forward to achieve goals .</p><p>In feng shui , " whom the success " is often the only dedicated beginner for business , or opening new ones are on the way up the list ( especially convenient for the military establishment on the list ) . According to superstition , who once was never successfully been donated , lost , destroyed radiation damage that 8 horses .</p><p>Officials who have or should not be extended and receive 8 war horse because it would mean the reverse , ( access code style ) room nights to three . These people have to use other things in feng shui to protect and stable , durable what they are.</p><p>- See more at : http://www.vantien.com/ma-dao-thanh-cong.html # sthash.w4P2uOj7.dpuf</p>'),
+(1, '01', 'Mã đáo thành công', 'example-1', 6, '<p><strong>Ý nghĩa của tấm tranh:</strong></p><p>Thời xưa đánh giặc hay đi làm ăn, phương tiện duy nhứt để đi và đến nhanh từ điểm A đến điểm B là con ngựa. Thời đó mổi lần đi xa là một chuyện rất gian nan, đi nhiều tháng (chuyển hàng chẳng hạn) hoặc đi đánh giặc thường rất nhiều năm mới trở về, vì vậy nên coi như đi 10 người về được chỉ 1 người, mã đáo là ý nghĩa: may mắn quay về.</p><p>- Ngựa phi trong gió có ý là con ngựa đó khỏe mạnh. <br>- 8 con bởi vì số 8 "Bát" đọc theo hán cùng một âm với chử Phát là phát đạt. <br>- Bình thường 8 con chạy về (chạy về phía người đứng ngắm tranh) ý là 8 con đều cùng một chí hướng, đó là ý nghĩa nguyên thủy của các tranh thời xưa. Đây cũng là một bức tranh tâm lý cho chủ nhân của nó "mạnh dạng dồn hết nhiệt huyết, tiến về một hướng để đạt mục đích".</p><p>Ngày nay người vẽ phăng ra con quay đầu lại để làm cho bức tranh thêm sống động, khác bình thường. Con quay đầu thường ở vị trí giữa thứ 4 thứ 5 hay con đầu của 8 con (không khi nào con cuối đàn), ý khuyến khích hay cổ vũ đồng đội tiến lên để đạt mục đích.</p><p>Trong phong thủy, "Mã đáo thành công" thường chỉ dành tặng những người mới bắt đầu làm ăn buôn bán, mới khai trương hoặc những người đang trên đường lập công danh (đặc biệt thuận lợi cho người lập công danh trên quân trường). Theo dị đoan, những người này một khi đã được thành công thì không bao giờ được đem tặng, làm mất, làm hư hủy bức 8 con ngựa đó.</p><p>Người đã có quan chức hoặc đại gia rồi thì không nên nhận tranh 8 ngựa vì nó sẽ có nghĩa ngược lại, (mã truy phong) đem phong ba tới. Những người này phải dùng những vật khác trong phong thủy để bảo vệ và làm vững, bền những gì họ đang có.</p><p>- See more at: http://www.vantien.com/ma-dao-thanh-cong.html#sthash.w4P2uOj7.dpuf</p>', 'Mã đáo thành công', 2000000.00, 1900000.00, 0, 1, 1, 0, '1', 1, 9, '', '{"383720f65836dbe17e0b80c6296ecc18":{"filename":"383720f65836dbe17e0b80c6296ecc18.gif","alt":"","caption":"","primary":true},"3b023e9c3240877fd83849d4d0d0e52d":{"filename":"3b023e9c3240877fd83849d4d0d0e52d.gif","alt":"","caption":""}}', '', '', 1, 'Horses in non- wind', 'Horses in non- wind', '<p>The meaning of the painting :</p><p>Ancient fight or go to work and the only means to travel and to fast from point A to point B is a horse . Time away each time is a very difficult thing , go for several months ( eg shipping ) or go fight the new year is often a lot of returns, so watch as 10 people on the go is just one person , original code meaning : luck back.</p><p>- Horses in non- wind meant that the horse is healthy .</p><p>- 8 because the number 8 " Bowl " drought with a negative reading Buddhas is thriving .</p><p>- Normally I run about 8 ( running toward the stands watching the competition ) are the same as 8 human aspiration , which is the original meaning of the ancient paintings . This is a psychological picture for its owner " under strong passion poured , progress in one direction to achieve goals ."</p><p>Today, it tears off the drawing turned around to make the picture more vivid , the other normal . Spindle head is usually in place between the 4th or early 5th of 8 children ( not when the last man ) , encourage or cheer the team forward to achieve goals .</p><p>In feng shui , " whom the success " is often the only dedicated beginner for business , or opening new ones are on the way up the list ( especially convenient for the military establishment on the list ) . According to superstition , who once was never successfully been donated , lost , destroyed radiation damage that 8 horses .</p><p>Officials who have or should not be extended and receive 8 war horse because it would mean the reverse , ( access code style ) room nights to three . These people have to use other things in feng shui to protect and stable , durable what they are.</p><p>- See more at : http://www.vantien.com/ma-dao-thanh-cong.html # sthash.w4P2uOj7.dpuf</p>'),
 (6, '13', 'Ánh sáng bình minh', 'example-10', 7, '<p>example 10</p>', 'example 10', 1500000.00, 1500000.00, 0, 1, 1, 1, '1', 1, 13, '', '{"bc139a3bd2a05632fcbfbc7412dd9838":{"filename":"bc139a3bd2a05632fcbfbc7412dd9838.gif","alt":"","caption":"","primary":true},"cbf19f948dcb8517cee5baccfc538b12":{"filename":"cbf19f948dcb8517cee5baccfc538b12.gif","alt":"","caption":""}}', '', '', 1, '', '', ''),
 (7, '2', 'Ao sen', 'example-2', 8, '<p>example 2</p>', '', 1500000.00, 1500000.00, 0, 1, 1, 0, '2', 1, 0, '', '{"383720f65836dbe17e0b80c6296ecc18":{"filename":"383720f65836dbe17e0b80c6296ecc18.gif","alt":"","caption":"","primary":true},"3b023e9c3240877fd83849d4d0d0e52d":{"filename":"3b023e9c3240877fd83849d4d0d0e52d.gif","alt":"","caption":""}}', '', '', 1, '', '', ''),
-(8, '3', 'An bình (hoa mẫu đơn)', 'example-3', 9, '<p><strong>Ý nghĩa của mẫu đơn theo phong thủy</strong></p><p>Theo phong thủy, mẫu đơn là loài hoa vương giả sang trọng, là biểu tượng cho sự giàu có, thịnh vượng và sắc đẹp.  Trong thế giới của các vật phẩm phong thủy, hoa mẫu đơn được gọi là vật phẩm cho phú quý, tình duyên.<br> <br>Hoa mẫu đơn còn được dùng làm pháp khí phong thủy trong tình yêu đôi lứa. Treo hình hoa mẫu đơn tượng trưng cho sự chung thủy, tình yêu trong sáng, nhân duyên tốt đẹp.<br> <br>Nếu như ta cắm một bình hoa mẫu đơn tươi thắm ở phòng khách sẽ làm cho căn phòng thêm rạng rỡ hơn và đem lại sự suôn sẻ trong công việc cho gia chủ.<br><br>Ngày xưa, khi treo 1 bức tranh hoa mẫu đơn màu hồng hoặc màu đỏ trong nhà có nghĩa là gia đình đó có những cô gái trẻ đang độ xuân thì. Có khá nhìều sự tích về hoa mẫu đơn. Chẳng hạn, câu chuyện về Bạch Mẫu Đơn, nàng tiên rất giỏi về nghệ thuật tình ái, hay những tương truyền về Dương Quý Phi, một người đẹp nghiêng nước nghiêng thành đã dùng hoa mẫu đơn trang trí trong phòng để thu hút sự đam mê và thường xuyên lui tới của Đường Minh Hoàng.<br><br>Việc trưng bày hoa mẫu đơn sẽ đưa lại may mắn. Tuy nhiên, bạn cần lưu ý rằng, không phải lúc nào hoa mẫu đơn cũng là biểu tượng tốt. Trưng bày hoa mẫu đơn trong phòng ngủ có thể dẫn đến những rắc rối trong quan hệ vợ chồng. Đặc biệt là đối với những cặp vợ chồng đã kết hôn nhiều năm, treo tranh hoa mẫu đơn trong phòng ngủ sẽ thúc đẩy thêm ham muốn tình dục ở người chồng, khiến người chồng dễ có thói trăng hoa. Tranh mẫu đơn hoặc bình hoa mẫu đơn nên đặt trong phòng khách. Điều này có lợi cho các cô gái trong gia đình và những người trẻ tuổi độc thân sống trong gia đình. Khi họ đã lập gia đình, hãy cất bức tranh đi.</p><p>- See more at: http://www.vantien.com/an-binh.html#sthash.Vrv3N0Kb.dpuf</p>', 'example 3', 2000000.00, 1500000.00, 0, 1, 1, 0, '3', 1, 3, '["7","1","8"]', '{"bc139a3bd2a05632fcbfbc7412dd9838":{"filename":"bc139a3bd2a05632fcbfbc7412dd9838.gif","alt":"","caption":"","primary":true},"cbf19f948dcb8517cee5baccfc538b12":{"filename":"cbf19f948dcb8517cee5baccfc538b12.gif","alt":"","caption":""}}', '', '', 1, 'An bình (hoa mẫu đơn)', '', '<p>The meaning of the painting :</p><p>Ancient fight or go to work and the only means to travel and to fast from point A to point B is a horse . Time away each time is a very difficult thing , go for several months ( eg shipping ) or go fight the new year is often a lot of returns, so watch as 10 people on the go is just one person , original code meaning : luck back.</p><p>- Horses in non- wind meant that the horse is healthy .</p><p>- 8 because the number 8 " Bowl " drought with a negative reading Buddhas is thriving .</p><p>- Normally I run about 8 ( running toward the stands watching the competition ) are the same as 8 human aspiration , which is the original meaning of the ancient paintings . This is a psychological picture for its owner " under strong passion poured , progress in one direction to achieve goals ."</p><p>Today, it tears off the drawing turned around to make the picture more vivid , the other normal . Spindle head is usually in place between the 4th or early 5th of 8 children ( not when the last man ) , encourage or cheer the team forward to achieve goals .</p><p>In feng shui , " whom the success " is often the only dedicated beginner for business , or opening new ones are on the way up the list ( especially convenient for the military establishment on the list ) . According to superstition , who once was never successfully been donated , lost , destroyed radiation damage that 8 horses .</p><p>Officials who have or should not be extended and receive 8 war horse because it would mean the reverse , ( access code style ) room nights to three . These people have to use other things in feng shui to protect and stable , durable what they are.</p><p>- See more at : http://www.vantien.com/ma-dao-thanh-cong.html # sthash.w4P2uOj7.dpuf</p>');
+(8, '3', 'An bình (hoa mẫu đơn)', 'example-3', 9, '<p><strong>Ý nghĩa của mẫu đơn theo phong thủy</strong></p><p>Theo phong thủy, mẫu đơn là loài hoa vương giả sang trọng, là biểu tượng cho sự giàu có, thịnh vượng và sắc đẹp.  Trong thế giới của các vật phẩm phong thủy, hoa mẫu đơn được gọi là vật phẩm cho phú quý, tình duyên.<br> <br>Hoa mẫu đơn còn được dùng làm pháp khí phong thủy trong tình yêu đôi lứa. Treo hình hoa mẫu đơn tượng trưng cho sự chung thủy, tình yêu trong sáng, nhân duyên tốt đẹp.<br> <br>Nếu như ta cắm một bình hoa mẫu đơn tươi thắm ở phòng khách sẽ làm cho căn phòng thêm rạng rỡ hơn và đem lại sự suôn sẻ trong công việc cho gia chủ.<br><br>Ngày xưa, khi treo 1 bức tranh hoa mẫu đơn màu hồng hoặc màu đỏ trong nhà có nghĩa là gia đình đó có những cô gái trẻ đang độ xuân thì. Có khá nhìều sự tích về hoa mẫu đơn. Chẳng hạn, câu chuyện về Bạch Mẫu Đơn, nàng tiên rất giỏi về nghệ thuật tình ái, hay những tương truyền về Dương Quý Phi, một người đẹp nghiêng nước nghiêng thành đã dùng hoa mẫu đơn trang trí trong phòng để thu hút sự đam mê và thường xuyên lui tới của Đường Minh Hoàng.<br><br>Việc trưng bày hoa mẫu đơn sẽ đưa lại may mắn. Tuy nhiên, bạn cần lưu ý rằng, không phải lúc nào hoa mẫu đơn cũng là biểu tượng tốt. Trưng bày hoa mẫu đơn trong phòng ngủ có thể dẫn đến những rắc rối trong quan hệ vợ chồng. Đặc biệt là đối với những cặp vợ chồng đã kết hôn nhiều năm, treo tranh hoa mẫu đơn trong phòng ngủ sẽ thúc đẩy thêm ham muốn tình dục ở người chồng, khiến người chồng dễ có thói trăng hoa. Tranh mẫu đơn hoặc bình hoa mẫu đơn nên đặt trong phòng khách. Điều này có lợi cho các cô gái trong gia đình và những người trẻ tuổi độc thân sống trong gia đình. Khi họ đã lập gia đình, hãy cất bức tranh đi.</p><p>- See more at: http://www.vantien.com/an-binh.html#sthash.Vrv3N0Kb.dpuf</p>', 'example 3', 2000000.00, 1500000.00, 0, 1, 1, 0, '3', 1, 3, '["7","1","8"]', '{"bc139a3bd2a05632fcbfbc7412dd9838":{"filename":"bc139a3bd2a05632fcbfbc7412dd9838.gif","alt":"","caption":"","primary":true},"cbf19f948dcb8517cee5baccfc538b12":{"filename":"cbf19f948dcb8517cee5baccfc538b12.gif","alt":"","caption":""}}', '', '', 1, 'An bình (hoa mẫu đơn)', '', '<p>The meaning of the painting :</p><p>Ancient fight or go to work and the only means to travel and to fast from point A to point B is a horse . Time away each time is a very difficult thing , go for several months ( eg shipping ) or go fight the new year is often a lot of returns, so watch as 10 people on the go is just one person , original code meaning : luck back.</p><p>- Horses in non- wind meant that the horse is healthy .</p><p>- 8 because the number 8 " Bowl " drought with a negative reading Buddhas is thriving .</p><p>- Normally I run about 8 ( running toward the stands watching the competition ) are the same as 8 human aspiration , which is the original meaning of the ancient paintings . This is a psychological picture for its owner " under strong passion poured , progress in one direction to achieve goals ."</p><p>Today, it tears off the drawing turned around to make the picture more vivid , the other normal . Spindle head is usually in place between the 4th or early 5th of 8 children ( not when the last man ) , encourage or cheer the team forward to achieve goals .</p><p>In feng shui , " whom the success " is often the only dedicated beginner for business , or opening new ones are on the way up the list ( especially convenient for the military establishment on the list ) . According to superstition , who once was never successfully been donated , lost , destroyed radiation damage that 8 horses .</p><p>Officials who have or should not be extended and receive 8 war horse because it would mean the reverse , ( access code style ) room nights to three . These people have to use other things in feng shui to protect and stable , durable what they are.</p><p>- See more at : http://www.vantien.com/ma-dao-thanh-cong.html # sthash.w4P2uOj7.dpuf</p>'),
+(9, '5', 'Cá chép dưới cành hoa', 'ca-chep-duoi-canh-hoa', 49, '<p>Cá chép dưới cành hoa</p>', 'Cá chép dưới cành hoa', 300000.00, 300000.00, 0, 1, 1, 0, '', 1, 0, '', 'false', '', '', 1, 'fish', '', '<p>Cá chép dưới cành hoa</p>'),
+(10, '7', 'Cá chép dưới hoa', 'ca-chep-duoi-hoa', 50, '<p>Cá chép dưới hoa</p>', 'Cá chép dưới hoa', 300000.00, 300000.00, 0, 1, 1, 0, '', 1, 0, '', 'false', '', '', 1, 'Cá chép dưới hoa', '', '<p>Cá chép dưới hoa</p>'),
+(11, '9', 'Cá hóa rồng', 'ca-hoa-rong', 51, '<p>Cá hóa rồng</p>', 'Cá hóa rồng', 300000.00, 300000.00, 0, 1, 1, 0, '', 1, 0, '', 'false', '', '', 1, 'Cá hóa rồng', '', '<p>Cá hóa rồng</p>'),
+(12, '6', 'Cá chép vượt Vũ Môn', 'ca-chep-vuot-vu-mon', 52, '<p>Cá chép vượt Vũ Môn</p>', 'Cá chép vượt Vũ Môn', 300000.00, 300000.00, 0, 1, 1, 0, '', 1, 0, '', 'false', '', '', 1, 'Cá chép vượt Vũ Môn', '', '<p>Cá chép vượt Vũ Môn</p>'),
+(13, '8', 'Cá chép vượt Vũ Môn 02', 'ca-chep-vuot-vu-mon-02', 53, '<p>Cá chép vượt Vũ Môn 02</p>', 'Cá chép vượt Vũ Môn 02', 300000.00, 300000.00, 0, 1, 1, 0, '', 1, 0, '', 'false', '', '', 1, 'Cá chép vượt Vũ Môn 02', 'Cá chép vượt Vũ Môn 02', '<p>Cá chép vượt Vũ Môn 02</p>'),
+(14, '17', 'Cửu ngư quần hội M2235', 'cuu-ngu-quan-hoi-m2235', 54, '<p>Cửu ngư quần hội M2235</p>', 'Cửu ngư quần hội M2235', 300000.00, 300000.00, 0, 1, 1, 0, '', 1, 0, '', 'false', '', '', 1, 'Cửu ngư quần hội M2235', 'Cửu ngư quần hội M2235', '<p>Cửu ngư quần hội M2235</p>'),
+(15, '11', 'Cửu ngư quần hội', 'cuu-ngu-quan-hoi', 55, '<p>Cửu ngư quần hội</p>', 'Cửu ngư quần hội', 300000.00, 300000.00, 0, 1, 1, 0, '', 1, 0, '', 'false', '', '', 1, 'Cửu ngư quần hội', 'Cửu ngư quần hội', '<p>Cửu ngư quần hội</p>'),
+(16, '12', 'Cửu ngư quần hội 02', 'cuu-ngu-quan-hoi-02', 56, '<p>Cửu ngư quần hội 02</p>', 'Cửu ngư quần hội 02', 300000.00, 300000.00, 0, 1, 1, 0, '', 1, 0, '', 'false', '', '', 1, 'Cửu ngư quần hội 02', 'Cửu ngư quần hội 02', '<p>Cửu ngư quần hội 02</p>'),
+(17, '13', 'Cửu ngư quần hội 03', 'cuu-ngu-quan-hoi-03', 57, '<p>Cửu ngư quần hội 03</p>', 'Cửu ngư quần hội 03', 300000.00, 300000.00, 0, 1, 1, 0, '', 1, 0, '', 'false', '', '', 1, 'Cửu ngư quần hội 03', 'Cửu ngư quần hội 03', '<p>Cửu ngư quần hội 03</p>'),
+(18, '14', 'Cửu ngư quần hội 05', 'cuu-ngu-quan-hoi-05', 58, '<p>Cửu ngư quần hội 05</p>', 'Cửu ngư quần hội 05', 300000.00, 300000.00, 0, 1, 1, 0, '', 1, 0, '', 'false', '', '', 1, 'Cửu ngư quần hội 05', '', '<p>Cửu ngư quần hội 05</p>'),
+(19, '15', 'Cửu ngư quần hội 07', 'cuu-ngu-quan-hoi-07', 59, '<p>Cửu ngư quần hội 07</p>', 'Cửu ngư quần hội 07', 300000.00, 300000.00, 0, 1, 1, 0, '', 1, 0, '', 'false', '', '', 1, 'Cửu ngư quần hội 07', '', '<p>Cửu ngư quần hội 07</p>'),
+(20, '16', 'Cửu ngư quần hội 08', 'cuu-ngu-quan-hoi-08', 60, '<p>Cửu ngư quần hội 08</p>', 'Cửu ngư quần hội 08', 300000.00, 300000.00, 0, 1, 1, 0, '', 1, 0, '', 'false', '', '', 1, 'Cửu ngư quần hội 08', '', '<p>Cửu ngư quần hội 08</p>'),
+(21, '44', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 61, '<p>aaaaaaaaaaaaaaaa</p>', 'aaaaaaaaaaaaaaaa', 3000000.00, 300000.00, 0, 1, 1, 0, '', 1, 0, '', 'false', '', '', 1, 'aaaaaaaaaaaaaaaa', '', '<p>aaaaaaaaaaaaaaaa</p>');
 
 -- --------------------------------------------------------
 
@@ -4895,7 +4950,7 @@ CREATE TABLE IF NOT EXISTS `gc_routes` (
   `slug` varchar(255) NOT NULL,
   `route` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=62 ;
 
 --
 -- Dumping data for table `gc_routes`
@@ -4947,7 +5002,20 @@ INSERT INTO `gc_routes` (`id`, `slug`, `route`) VALUES
 (45, 'san-pham-chua-hoan-thien', 'cart/category/38'),
 (46, 'baby-poster1', 'cart/category/39'),
 (47, 'tranh-laminate', 'cart/category/40'),
-(48, 'khung-trang', 'cart/category/41');
+(48, 'khung-trang', 'cart/category/41'),
+(49, 'ca-chep-duoi-canh-hoa', 'cart/product/9'),
+(50, 'ca-chep-duoi-hoa', 'cart/product/10'),
+(51, 'ca-hoa-rong', 'cart/product/11'),
+(52, 'ca-chep-vuot-vu-mon', 'cart/product/12'),
+(53, 'ca-chep-vuot-vu-mon-02', 'cart/product/13'),
+(54, 'cuu-ngu-quan-hoi-m2235', 'cart/product/14'),
+(55, 'cuu-ngu-quan-hoi', 'cart/product/15'),
+(56, 'cuu-ngu-quan-hoi-02', 'cart/product/16'),
+(57, 'cuu-ngu-quan-hoi-03', 'cart/product/17'),
+(58, 'cuu-ngu-quan-hoi-05', 'cart/product/18'),
+(59, 'cuu-ngu-quan-hoi-07', 'cart/product/19'),
+(60, 'cuu-ngu-quan-hoi-08', 'cart/product/20'),
+(61, 'aaaaaaaaaaaaaaaa', 'cart/product/21');
 
 -- --------------------------------------------------------
 
@@ -4983,7 +5051,7 @@ CREATE TABLE IF NOT EXISTS `gc_settings` (
   `setting_key` varchar(255) NOT NULL,
   `setting` longtext NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=57 ;
 
 --
 -- Dumping data for table `gc_settings`
@@ -5011,8 +5079,8 @@ INSERT INTO `gc_settings` (`id`, `code`, `setting_key`, `setting`) VALUES
 (19, 'gocart', 'admin_folder', 'admin'),
 (20, 'gocart', 'new_customer_status', '1'),
 (21, 'gocart', 'require_login', '0'),
-(22, 'gocart', 'order_status', 'Order Placed'),
-(23, 'gocart', 'order_statuses', '{"Order Placed":"Order Placed","Pending":"Pending","Processing":"Processing","Shipped":"Shipped","On Hold":"On Hold","Cancelled":"Cancelled","Delivered":"Delivered"}'),
+(22, 'gocart', 'order_status', 'Đã đặt hàng'),
+(23, 'gocart', 'order_statuses', '{"Đã đặt hàng":"Đã đặt hàng","Chờ xử lý":"Chờ xử lý","Đã xử lý":"Đã xử lý","Đang vận chuyển":"Đang vận chuyển","Đã vận chuyển":"Đã vận chuyển"}'),
 (24, 'gocart', 'inventory_enabled', '0'),
 (25, 'gocart', 'allow_os_purchase', '1'),
 (26, 'gocart', 'tax_address', 'ship'),
@@ -5033,4 +5101,11 @@ INSERT INTO `gc_settings` (`id`, `code`, `setting_key`, `setting`) VALUES
 (41, 'gift_cards', 'allow_custom_amount', '1'),
 (42, 'gift_cards', 'enabled', '1'),
 (43, 'slide', 'slide_l', '{"qty_l":"10","sort_l":"RANDOM","categories_l":["1","5"]}'),
-(44, 'slide', 'slide_r', '{"qty_r":"10","sort_r":"RANDOM","categories_r":["3"]}');
+(44, 'slide', 'slide_r', '{"qty_r":"10","sort_r":"RANDOM","categories_r":["1","3"]}'),
+(47, 'ads', 'ads', '{"left":[{"name":"","link":"#","img":"http:\\/\\/demo.thoitrangdn.com\\/images\\/quangcao\\/trungdesgallery_Web_New_03.gif"},{"name":"","link":"#","img":"http:\\/\\/demo.thoitrangdn.com\\/images\\/quangcao\\/trungdesgallery_Web_New_06.gif"},{"name":"","link":"#","img":"http:\\/\\/demo.thoitrangdn.com\\/images\\/quangcao\\/trungdesgallery_Web_New_08.gif"},{"name":"","link":"#","img":"http:\\/\\/demo.thoitrangdn.com\\/images\\/quangcao\\/trungdesgallery_Web_New_10.gif"},{"name":"","link":"#","img":"http:\\/\\/demo.thoitrangdn.com\\/images\\/quangcao\\/trungdesgallery_Web_New_16.gif"}],"right":[{"name":"","link":"#","img":"http:\\/\\/demo.thoitrangdn.com\\/images\\/quangcao\\/trungdesgallery_Web_New_12.gif"},{"name":"","link":"#","img":"http:\\/\\/demo.thoitrangdn.com\\/images\\/quangcao\\/trungdesgallery_Web_New_15.gif"},{"name":"","link":"#","img":"http:\\/\\/demo.thoitrangdn.com\\/images\\/quangcao\\/trungdesgallery_Web_New_19.gif"}]}'),
+(51, 'shipping_modules', 'tranhviet', '0'),
+(52, 'tranhviet', 'taivanphong', '0'),
+(53, 'tranhviet', 'noithanh', '10000'),
+(54, 'tranhviet', 'ngoaithanh', '30000'),
+(55, 'tranhviet', 'lientinh', '50000'),
+(56, 'tranhviet', 'enabled', '1');

@@ -124,10 +124,10 @@
     $lang['price'] = 'Giá';
     $lang['description'] = 'Nội dung';
     $lang['quantity'] = 'Số lượng';
-    $lang['totals'] = 'Tổng cộng';
+    $lang['totals'] = 'Thành tiền';
     $lang['group_discount'] = 'Nhóm giảm giá';
     $lang['subtotal'] = 'Tổng cộng';
-    $lang['cart_total'] = 'Tổng cộng';
+    $lang['cart_total'] = 'Tổng tiền giỏ hàng';
     $lang['coupon_discount'] = 'Giảm giá(Coupon)';
     $lang['gift_card_discount'] = 'Giảm giá(Gift Card)';
     $lang['discounted_subtotal'] = 'Tổng giảm giá';

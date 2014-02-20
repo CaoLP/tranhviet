@@ -28,7 +28,9 @@
                             <input class="span2 btn" type="submit" value="<?php echo lang('apply_gift_card'); ?>"/>
                         <?php endif; ?>
                     </div>
+                    <div class="span5">
 
+                    </div>
                     <div class="span9" style="text-align:center; margin-top: 30px;margin-left: 30px;">
                         <input id="redirect_path" type="hidden" name="redirect" value=""/>
 

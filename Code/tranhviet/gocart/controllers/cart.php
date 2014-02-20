@@ -417,7 +417,6 @@
             $item_keys = $this->input->post('cartkey');
             $coupon_code = $this->input->post('coupon_code');
             $gc_code = $this->input->post('gc_code');
-
             if ($coupon_code) {
                 $coupon_code = strtolower($coupon_code);
             }

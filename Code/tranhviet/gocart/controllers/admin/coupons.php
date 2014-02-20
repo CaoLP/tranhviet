@@ -39,7 +39,7 @@ class Coupons extends Admin_Controller {
 		
 		//default values are empty if the product is new
 		$data['id']						= '';
-		$data['code']					= '';
+		$data['code']					= $this->random_string();
 		$data['start_date']				= '';
 		$data['whole_order_coupon']		= 0;
 		$data['max_product_instances'] 	= '';
@@ -213,4 +213,18 @@ class Coupons extends Admin_Controller {
 			redirect($this->config->item('admin_folder').'/coupons');
 		}
 	}
+    function random_string()
+    {
+        $character_set_array = array();
+        $character_set_array[] = array('count' => 9, 'characters' => 'abcdefghijklmnopqrstuvwxyz');
+        $character_set_array[] = array('count' => 4, 'characters' => '0123456789');
+        $temp_array = array();
+        foreach ($character_set_array as $character_set) {
+            for ($i = 0; $i < $character_set['count']; $i++) {
+                $temp_array[] = $character_set['characters'][rand(0, strlen($character_set['characters']) - 1)];
+            }
+        }
+        shuffle($temp_array);
+        return strtoupper(implode('', $temp_array));
+    }
 }
